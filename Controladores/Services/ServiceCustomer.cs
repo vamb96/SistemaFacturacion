@@ -54,7 +54,7 @@ namespace Controladores.Services
             {
                 _customer.Id = customer.Id;
                 _customer.CustName = customer.CustName;
-                _customer.Address = customer.Address;
+                _customer.Adress = customer.Adress;
                 _customer.Status = customer.Status;
                 _customer.IsActivo = customer.IsActivo;
                 _customer.CustomerTypeId = customer.CustomerTypeId;

@@ -34,12 +34,14 @@ namespace Datos.ConexionDB
             modelBuilder.Entity<InvoiceDetail>().Property(i => i.Price).HasColumnType("decimal(18,4)");
             modelBuilder.Entity<InvoiceDetail>().Property(i => i.SubTotal).HasColumnType("decimal(18,4)");
             modelBuilder.Entity<InvoiceDetail>().Property(i => i.Total).HasColumnType("decimal(18,4)");
+
+            modelBuilder.Entity<Customer>().ToTable("Customers");
         }
 
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<InvoiceDetail> InvoicesDetail { get; set; }
-        public DbSet<Producto> Productos { get; set; }
+        public DbSet<Product> Productos { get; set; }
         public DbSet<CustomerTypes> CustomerTypes { get; set; }
 
     }

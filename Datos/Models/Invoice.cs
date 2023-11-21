@@ -13,8 +13,8 @@ namespace Datos.Models
         public decimal TotalItbis { get; set; }
         public decimal SubTotal {  get; set; }
         public decimal Total {  get; set; }
-        public decimal Itebis { get; set; }
-        public List<InvoiceDetail> Details { get; set; }
+        public DateTime dateTime { get; set; }
+        public List<InvoiceDetail> ListDetails { get; set; }
         public Customer Customer { get; set; }
     }
 }

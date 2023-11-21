@@ -16,7 +16,7 @@ namespace Datos.Models
         public decimal Itebis { get; set; }
         public decimal SubTotal { get; set; }
         public decimal Total { get; set; }
-        public Producto producto { get; set; }
+        public Product producto { get; set; }
         public Invoice invoice {get; set;}
     }
 }
