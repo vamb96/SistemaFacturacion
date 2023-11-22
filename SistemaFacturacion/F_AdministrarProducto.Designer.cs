@@ -33,12 +33,12 @@
             BT_Agregar = new Button();
             TXT_Buscar = new TextBox();
             DGV_Product = new DataGridView();
+            label1 = new Label();
             ID = new DataGridViewTextBoxColumn();
             CustName = new DataGridViewTextBoxColumn();
-            IsActivo = new DataGridViewTextBoxColumn();
+            IsActivo = new DataGridViewCheckBoxColumn();
             Editar = new DataGridViewButtonColumn();
             Eliminar = new DataGridViewButtonColumn();
-            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)DGV_Product).BeginInit();
             SuspendLayout();
             // 
@@ -97,6 +97,15 @@
             DGV_Product.TabIndex = 7;
             DGV_Product.CellClick += DGV_Product_CellClick;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(28, 86);
+            label1.Name = "label1";
+            label1.Size = new Size(54, 15);
+            label1.TabIndex = 6;
+            label1.Text = "Nombre:";
+            // 
             // ID
             // 
             ID.Frozen = true;
@@ -117,6 +126,8 @@
             IsActivo.HeaderText = "Activo";
             IsActivo.Name = "IsActivo";
             IsActivo.ReadOnly = true;
+            IsActivo.Resizable = DataGridViewTriState.True;
+            IsActivo.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
             // Editar
             // 
@@ -131,15 +142,6 @@
             Eliminar.HeaderText = "Eliminar";
             Eliminar.Name = "Eliminar";
             Eliminar.ReadOnly = true;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(28, 86);
-            label1.Name = "label1";
-            label1.Size = new Size(54, 15);
-            label1.TabIndex = 6;
-            label1.Text = "Nombre:";
             // 
             // F_AdministrarProducto
             // 
@@ -169,7 +171,7 @@
         private Label label1;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn CustName;
-        private DataGridViewTextBoxColumn IsActivo;
+        private DataGridViewCheckBoxColumn IsActivo;
         private DataGridViewButtonColumn Editar;
         private DataGridViewButtonColumn Eliminar;
     }

@@ -30,18 +30,18 @@
         {
             label1 = new Label();
             DGV_Customer = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            CustName = new DataGridViewTextBoxColumn();
-            Adress = new DataGridViewTextBoxColumn();
-            Status = new DataGridViewTextBoxColumn();
-            IsActivo = new DataGridViewTextBoxColumn();
-            CustomerType = new DataGridViewTextBoxColumn();
-            Editar = new DataGridViewButtonColumn();
-            Eliminar = new DataGridViewButtonColumn();
             TXT_Buscar = new TextBox();
             BT_Agregar = new Button();
             BT_Buscar = new Button();
             label2 = new Label();
+            ID = new DataGridViewTextBoxColumn();
+            CustName = new DataGridViewTextBoxColumn();
+            Adress = new DataGridViewTextBoxColumn();
+            Status = new DataGridViewCheckBoxColumn();
+            IsActivo = new DataGridViewCheckBoxColumn();
+            CustomerType = new DataGridViewTextBoxColumn();
+            Editar = new DataGridViewButtonColumn();
+            Eliminar = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)DGV_Customer).BeginInit();
             SuspendLayout();
             // 
@@ -71,62 +71,6 @@
             DGV_Customer.Size = new Size(804, 207);
             DGV_Customer.TabIndex = 1;
             DGV_Customer.CellClick += DGV_Customer_CellClick;
-            // 
-            // ID
-            // 
-            ID.Frozen = true;
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            ID.ReadOnly = true;
-            // 
-            // CustName
-            // 
-            CustName.Frozen = true;
-            CustName.HeaderText = "Nombre";
-            CustName.Name = "CustName";
-            CustName.ReadOnly = true;
-            // 
-            // Adress
-            // 
-            Adress.Frozen = true;
-            Adress.HeaderText = "Direccion";
-            Adress.Name = "Adress";
-            Adress.ReadOnly = true;
-            // 
-            // Status
-            // 
-            Status.Frozen = true;
-            Status.HeaderText = "Status";
-            Status.Name = "Status";
-            Status.ReadOnly = true;
-            // 
-            // IsActivo
-            // 
-            IsActivo.Frozen = true;
-            IsActivo.HeaderText = "Activo";
-            IsActivo.Name = "IsActivo";
-            IsActivo.ReadOnly = true;
-            // 
-            // CustomerType
-            // 
-            CustomerType.Frozen = true;
-            CustomerType.HeaderText = "Tipo de cliente";
-            CustomerType.Name = "CustomerType";
-            CustomerType.ReadOnly = true;
-            // 
-            // Editar
-            // 
-            Editar.Frozen = true;
-            Editar.HeaderText = "Editar";
-            Editar.Name = "Editar";
-            Editar.ReadOnly = true;
-            // 
-            // Eliminar
-            // 
-            Eliminar.Frozen = true;
-            Eliminar.HeaderText = "Eliminar";
-            Eliminar.Name = "Eliminar";
-            Eliminar.ReadOnly = true;
             // 
             // TXT_Buscar
             // 
@@ -167,6 +111,66 @@
             label2.TabIndex = 5;
             label2.Text = "Administrar Cliente";
             // 
+            // ID
+            // 
+            ID.Frozen = true;
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            // 
+            // CustName
+            // 
+            CustName.Frozen = true;
+            CustName.HeaderText = "Nombre";
+            CustName.Name = "CustName";
+            CustName.ReadOnly = true;
+            // 
+            // Adress
+            // 
+            Adress.Frozen = true;
+            Adress.HeaderText = "Direccion";
+            Adress.Name = "Adress";
+            Adress.ReadOnly = true;
+            // 
+            // Status
+            // 
+            Status.Frozen = true;
+            Status.HeaderText = "Status";
+            Status.Name = "Status";
+            Status.ReadOnly = true;
+            Status.Resizable = DataGridViewTriState.True;
+            Status.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // IsActivo
+            // 
+            IsActivo.Frozen = true;
+            IsActivo.HeaderText = "Activo";
+            IsActivo.Name = "IsActivo";
+            IsActivo.ReadOnly = true;
+            IsActivo.Resizable = DataGridViewTriState.True;
+            IsActivo.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // CustomerType
+            // 
+            CustomerType.Frozen = true;
+            CustomerType.HeaderText = "Tipo de cliente";
+            CustomerType.Name = "CustomerType";
+            CustomerType.ReadOnly = true;
+            // 
+            // Editar
+            // 
+            Editar.Frozen = true;
+            Editar.HeaderText = "Editar";
+            Editar.Name = "Editar";
+            Editar.ReadOnly = true;
+            // 
+            // Eliminar
+            // 
+            Eliminar.Frozen = true;
+            Eliminar.HeaderText = "Eliminar";
+            Eliminar.Name = "Eliminar";
+            Eliminar.ReadOnly = true;
+            // 
             // F_AdministrarCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -196,8 +200,8 @@
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn CustName;
         private DataGridViewTextBoxColumn Adress;
-        private DataGridViewTextBoxColumn Status;
-        private DataGridViewTextBoxColumn IsActivo;
+        private DataGridViewCheckBoxColumn Status;
+        private DataGridViewCheckBoxColumn IsActivo;
         private DataGridViewTextBoxColumn CustomerType;
         private DataGridViewButtonColumn Editar;
         private DataGridViewButtonColumn Eliminar;

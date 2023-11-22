@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace SistemaFacturacion
 {
@@ -26,6 +27,8 @@ namespace SistemaFacturacion
             _invoice = invoice;
             _action = action;
             _invoiceDetail = new InvoiceDetail();
+            NUD_Cantidad.Minimum = 1;
+            NUD_Cantidad.DecimalPlaces = 0;
             ActualizarDGV();
         }
 
@@ -38,7 +41,7 @@ namespace SistemaFacturacion
                 DGV_Productos.Rows.Clear();
                 foreach (Product item in list)
                 {
-                    DGV_Productos.Rows.Add(item.Id,item.Description);
+                    DGV_Productos.Rows.Add(item.Id, item.Description);
                 }
             }
             else
@@ -54,33 +57,80 @@ namespace SistemaFacturacion
             {
                 DataGridViewRow filaSeleccionada = DGV_Productos.SelectedRows[0];
                 int idProducto = (int)filaSeleccionada.Cells[0].Value;
+                bool agregar;
 
                 Product producto = _service.GetProductId(idProducto);
 
-                try
+                if (!_invoice.ListDetails.Any(detail => detail.ProductId == idProducto))
                 {
-                    decimal numeroEntero = Convert.ToDecimal(TXT_Precio.Text);
                     
-                    _invoiceDetail.ProductId = idProducto;//producto.Id;
-                    _invoiceDetail.Qty = (int)NUD_Cantidad.Value;
-                    _invoiceDetail.Price = numeroEntero;
-                    _invoiceDetail.SubTotal = _invoiceDetail.Qty * _invoiceDetail.Price;
-                    _invoiceDetail.Itebis = _invoiceDetail.SubTotal * 0.18M;
-                    _invoiceDetail.Total = _invoiceDetail.SubTotal + _invoiceDetail.Itebis;
-                    _invoiceDetail.producto = producto;
-                    _invoiceDetail.invoice = _invoice;
+                    try
+                    {
+                        _invoiceDetail.ProductId = idProducto;
+                        _invoiceDetail.Qty = (int)NUD_Cantidad.Value;
+                        _invoiceDetail.Price = Convert.ToInt32(TXT_Precio.Text);
+                        _invoiceDetail.SubTotal = _invoiceDetail.Qty * _invoiceDetail.Price;
+                        _invoiceDetail.Itbis = _invoiceDetail.SubTotal * 0.18M;
+                        _invoiceDetail.Total = _invoiceDetail.SubTotal + _invoiceDetail.Itbis;
+                        _invoiceDetail.producto = producto;
+                        _invoiceDetail.invoice = _invoice;
+
+                        _invoice.ListDetails.Add(_invoiceDetail);
+                        _action();
+                        this.Close();
+
+                    }
+                    catch (Exception)
+                    {
+
+                        MessageBox.Show("Ha ocurrido un error intentelo nuevamente.");
+                    }
                     
-                    _invoice.ListDetails.Add(_invoiceDetail);
-                    _action();
-                    this.Close();
+                    
                 }
-                catch (Exception)
+                else
+                {
+                    foreach (InvoiceDetail detail in _invoice.ListDetails)
+                    {
+                        if (detail.ProductId == producto.Id)
+                        {
+                            detail.Qty += Convert.ToInt32(NUD_Cantidad.Value);
+                            detail.Price = Convert.ToInt32(TXT_Precio.Text);
+                            detail.SubTotal = detail.Qty * detail.Price;
+                            detail.Itbis = detail.SubTotal * 0.18M;
+                            detail.Total = detail.SubTotal + detail.Itbis;
+                            this.Close();
+                            _action();
+                            agregar = false;
+                        }
+
+                    }
+                }
+
+                //decimal numeroEntero = Convert.ToDecimal(TXT_Precio.Text);
+
+                /*if (_invoice.ListDetails.Count >= 0)
                 {
 
-                    MessageBox.Show("Ha ocurrido un error al convertir el precio a entero.");
+                    foreach (InvoiceDetail detail in _invoice.ListDetails)
+                    {
+                        if (detail.ProductId == producto.Id)
+                        {
+                            detail.Qty += Convert.ToInt32(NUD_Cantidad.Value);
+                            detail.Price = Convert.ToInt32(TXT_Precio.Text);
+                            this.Close();
+                            _action();
+                            agregar = false;
+                        }
+                        
+                    }
                 }
+                else
+                {
+
+                }*/
+
             }
-
         }
 
         private void ActualizarDGV()
@@ -92,6 +142,22 @@ namespace SistemaFacturacion
                 foreach (Product item in listProducts)
                 {
                     DGV_Productos.Rows.Add(item.Id, item.Description);
+                }
+            }
+        }
+
+        private void TXT_Precio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else if (char.IsDigit(e.KeyChar))
+            {
+                int value;
+                if (!int.TryParse(TXT_Precio.Text + e.KeyChar, out value) || value <=0)
+                {
+                    e.Handled = true;
                 }
             }
         }

@@ -30,7 +30,7 @@ namespace Controladores.Services
             {
                 _context.Invoices.Remove(invoice1);
                 _context.SaveChanges();
-                return _context.SaveChanges() > 0;
+                return true;
             }
             return false;
         }
@@ -89,6 +89,18 @@ namespace Controladores.Services
         public Product GetProductId(int id)
         {
             return _context.Productos.FirstOrDefault(x => x.Id == id);
+        }
+
+        public bool DeleteDetail(int idDetail)
+        {
+            InvoiceDetail invoiceDetail = _context.InvoicesDetail.FirstOrDefault(x => x.id == idDetail);
+            if (invoiceDetail != null)
+            {
+                _context.InvoicesDetail.Remove(invoiceDetail);
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
         }
     }
 }

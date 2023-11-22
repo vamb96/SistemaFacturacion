@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             DGV_Clientes = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            CustName = new DataGridViewTextBoxColumn();
-            Adress = new DataGridViewTextBoxColumn();
-            Status = new DataGridViewTextBoxColumn();
-            IsActivo = new DataGridViewCheckBoxColumn();
-            CustomerTypeId = new DataGridViewTextBoxColumn();
             BT_Buscar = new Button();
             label2 = new Label();
             TXT_Name = new TextBox();
             label1 = new Label();
             BT_Agregar = new Button();
+            ID = new DataGridViewTextBoxColumn();
+            CustName = new DataGridViewTextBoxColumn();
+            Adress = new DataGridViewTextBoxColumn();
+            Status = new DataGridViewCheckBoxColumn();
+            IsActivo = new DataGridViewCheckBoxColumn();
+            CustomerTypeId = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)DGV_Clientes).BeginInit();
             SuspendLayout();
             // 
@@ -64,42 +64,6 @@
             DGV_Clientes.Size = new Size(537, 150);
             DGV_Clientes.TabIndex = 12;
             DGV_Clientes.CellClick += DGV_Clientes_CellClick;
-            // 
-            // ID
-            // 
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            ID.ReadOnly = true;
-            // 
-            // CustName
-            // 
-            CustName.HeaderText = "Nombre";
-            CustName.Name = "CustName";
-            CustName.ReadOnly = true;
-            // 
-            // Adress
-            // 
-            Adress.HeaderText = "Direccion";
-            Adress.Name = "Adress";
-            Adress.ReadOnly = true;
-            // 
-            // Status
-            // 
-            Status.HeaderText = "Status";
-            Status.Name = "Status";
-            Status.ReadOnly = true;
-            // 
-            // IsActivo
-            // 
-            IsActivo.HeaderText = "Activo";
-            IsActivo.Name = "IsActivo";
-            IsActivo.ReadOnly = true;
-            // 
-            // CustomerTypeId
-            // 
-            CustomerTypeId.HeaderText = "Tipo";
-            CustomerTypeId.Name = "CustomerTypeId";
-            CustomerTypeId.ReadOnly = true;
             // 
             // BT_Buscar
             // 
@@ -149,6 +113,44 @@
             BT_Agregar.UseVisualStyleBackColor = true;
             BT_Agregar.Click += BT_Agregar_Click;
             // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            // 
+            // CustName
+            // 
+            CustName.HeaderText = "Nombre";
+            CustName.Name = "CustName";
+            CustName.ReadOnly = true;
+            // 
+            // Adress
+            // 
+            Adress.HeaderText = "Direccion";
+            Adress.Name = "Adress";
+            Adress.ReadOnly = true;
+            // 
+            // Status
+            // 
+            Status.HeaderText = "Status";
+            Status.Name = "Status";
+            Status.ReadOnly = true;
+            Status.Resizable = DataGridViewTriState.True;
+            Status.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // IsActivo
+            // 
+            IsActivo.HeaderText = "Activo";
+            IsActivo.Name = "IsActivo";
+            IsActivo.ReadOnly = true;
+            // 
+            // CustomerTypeId
+            // 
+            CustomerTypeId.HeaderText = "Tipo";
+            CustomerTypeId.Name = "CustomerTypeId";
+            CustomerTypeId.ReadOnly = true;
+            // 
             // F_AgregarClienteFactura
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -178,7 +180,7 @@
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn CustName;
         private DataGridViewTextBoxColumn Adress;
-        private DataGridViewTextBoxColumn Status;
+        private DataGridViewCheckBoxColumn Status;
         private DataGridViewCheckBoxColumn IsActivo;
         private DataGridViewTextBoxColumn CustomerTypeId;
     }

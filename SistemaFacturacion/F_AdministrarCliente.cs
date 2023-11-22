@@ -99,18 +99,16 @@ namespace SistemaFacturacion
         {
             List<Customer> ListCustomer = ServiceCustomer.GetCustomers(TXT_Buscar.Text);
 
-            if (ListCustomer.Count > 0)
+            DGV_Customer.Rows.Clear();
+            foreach (Customer customer in ListCustomer)
             {
-                DGV_Customer.Rows.Clear();
-                foreach (Customer customer in ListCustomer)
-                {
-                    DGV_Customer.Rows.Add(customer.Id, customer.CustName, customer.Adress, customer.Status,
-                    customer.IsActivo, customer.CustomerTypeId);
-                }
+                DGV_Customer.Rows.Add(customer.Id, customer.CustName, customer.Adress, customer.Status,
+                customer.IsActivo, customer.CustomerTypeId);
             }
 
 
 
         }
+
     }
 }

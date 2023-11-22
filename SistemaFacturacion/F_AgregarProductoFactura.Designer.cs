@@ -144,6 +144,7 @@
             TXT_Precio.Name = "TXT_Precio";
             TXT_Precio.Size = new Size(100, 23);
             TXT_Precio.TabIndex = 9;
+            TXT_Precio.KeyPress += TXT_Precio_KeyPress;
             // 
             // NUD_Cantidad
             // 

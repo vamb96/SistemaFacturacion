@@ -34,14 +34,6 @@
             BT_AgregarProducto = new Button();
             BT_Buscar = new Button();
             DGV_DetalleFactura = new DataGridView();
-            IdProduc = new DataGridViewTextBoxColumn();
-            Qty = new DataGridViewTextBoxColumn();
-            Price = new DataGridViewTextBoxColumn();
-            Itebis = new DataGridViewTextBoxColumn();
-            SubTotalDetalle = new DataGridViewTextBoxColumn();
-            TotalDetalle = new DataGridViewTextBoxColumn();
-            EditarProducto = new DataGridViewButtonColumn();
-            EliminarProducto = new DataGridViewButtonColumn();
             groupBox2 = new GroupBox();
             TXT_TotalFactura = new TextBox();
             TXT_SubTotalFactura = new TextBox();
@@ -53,6 +45,14 @@
             TXT_NombreCliente = new TextBox();
             TXT_IdCliente = new TextBox();
             label2 = new Label();
+            IdProduc = new DataGridViewTextBoxColumn();
+            Qty = new DataGridViewTextBoxColumn();
+            Price = new DataGridViewTextBoxColumn();
+            SubTotalDetalle = new DataGridViewTextBoxColumn();
+            Itebis = new DataGridViewTextBoxColumn();
+            TotalDetalle = new DataGridViewTextBoxColumn();
+            Editar = new DataGridViewButtonColumn();
+            Eliminar = new DataGridViewButtonColumn();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_DetalleFactura).BeginInit();
             groupBox2.SuspendLayout();
@@ -117,12 +117,12 @@
             BT_Buscar.TabIndex = 7;
             BT_Buscar.Text = "Agregar Cliente";
             BT_Buscar.UseVisualStyleBackColor = true;
-            BT_Buscar.Click += BT_Buscar_Click;
+            BT_Buscar.Click += BT_AgregarClienteFactura_Click;
             // 
             // DGV_DetalleFactura
             // 
             DGV_DetalleFactura.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGV_DetalleFactura.Columns.AddRange(new DataGridViewColumn[] { IdProduc, Qty, Price, Itebis, SubTotalDetalle, TotalDetalle, EditarProducto, EliminarProducto });
+            DGV_DetalleFactura.Columns.AddRange(new DataGridViewColumn[] { IdProduc, Qty, Price, SubTotalDetalle, Itebis, TotalDetalle, Editar, Eliminar });
             DGV_DetalleFactura.Location = new Point(11, 76);
             DGV_DetalleFactura.MultiSelect = false;
             DGV_DetalleFactura.Name = "DGV_DetalleFactura";
@@ -131,62 +131,7 @@
             DGV_DetalleFactura.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DGV_DetalleFactura.Size = new Size(805, 261);
             DGV_DetalleFactura.TabIndex = 6;
-            // 
-            // IdProduc
-            // 
-            IdProduc.Frozen = true;
-            IdProduc.HeaderText = "Descripcion";
-            IdProduc.Name = "IdProduc";
-            IdProduc.ReadOnly = true;
-            // 
-            // Qty
-            // 
-            Qty.Frozen = true;
-            Qty.HeaderText = "Cantidad";
-            Qty.Name = "Qty";
-            Qty.ReadOnly = true;
-            // 
-            // Price
-            // 
-            Price.Frozen = true;
-            Price.HeaderText = "Precio";
-            Price.Name = "Price";
-            Price.ReadOnly = true;
-            // 
-            // Itebis
-            // 
-            Itebis.Frozen = true;
-            Itebis.HeaderText = "Itebis";
-            Itebis.Name = "Itebis";
-            Itebis.ReadOnly = true;
-            // 
-            // SubTotalDetalle
-            // 
-            SubTotalDetalle.Frozen = true;
-            SubTotalDetalle.HeaderText = "SubTotal";
-            SubTotalDetalle.Name = "SubTotalDetalle";
-            SubTotalDetalle.ReadOnly = true;
-            // 
-            // TotalDetalle
-            // 
-            TotalDetalle.Frozen = true;
-            TotalDetalle.HeaderText = "Total";
-            TotalDetalle.Name = "TotalDetalle";
-            TotalDetalle.ReadOnly = true;
-            // 
-            // EditarProducto
-            // 
-            EditarProducto.Frozen = true;
-            EditarProducto.HeaderText = "Editar";
-            EditarProducto.Name = "EditarProducto";
-            EditarProducto.ReadOnly = true;
-            // 
-            // EliminarProducto
-            // 
-            EliminarProducto.Frozen = true;
-            EliminarProducto.HeaderText = "Eliminar";
-            EliminarProducto.Name = "EliminarProducto";
-            EliminarProducto.ReadOnly = true;
+            DGV_DetalleFactura.CellClick += DGV_DetalleFactura_CellClick;
             // 
             // groupBox2
             // 
@@ -252,11 +197,11 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(23, 32);
+            label4.Location = new Point(2, 32);
             label4.Name = "label4";
-            label4.Size = new Size(38, 15);
+            label4.Size = new Size(60, 15);
             label4.TabIndex = 4;
-            label4.Text = "Itebis:";
+            label4.Text = "Total Itbis:";
             // 
             // label3
             // 
@@ -292,6 +237,62 @@
             label2.TabIndex = 0;
             label2.Text = "ID:";
             // 
+            // IdProduc
+            // 
+            IdProduc.Frozen = true;
+            IdProduc.HeaderText = "Descripcion";
+            IdProduc.Name = "IdProduc";
+            IdProduc.ReadOnly = true;
+            // 
+            // Qty
+            // 
+            Qty.Frozen = true;
+            Qty.HeaderText = "Cantidad";
+            Qty.Name = "Qty";
+            Qty.ReadOnly = true;
+            // 
+            // Price
+            // 
+            Price.Frozen = true;
+            Price.HeaderText = "Precio";
+            Price.Name = "Price";
+            Price.ReadOnly = true;
+            // 
+            // SubTotalDetalle
+            // 
+            SubTotalDetalle.Frozen = true;
+            SubTotalDetalle.HeaderText = "SubTotal";
+            SubTotalDetalle.Name = "SubTotalDetalle";
+            SubTotalDetalle.ReadOnly = true;
+            // 
+            // Itebis
+            // 
+            Itebis.Frozen = true;
+            Itebis.HeaderText = "Itbis";
+            Itebis.Name = "Itebis";
+            Itebis.ReadOnly = true;
+            // 
+            // TotalDetalle
+            // 
+            TotalDetalle.Frozen = true;
+            TotalDetalle.HeaderText = "Total";
+            TotalDetalle.Name = "TotalDetalle";
+            TotalDetalle.ReadOnly = true;
+            // 
+            // Editar
+            // 
+            Editar.Frozen = true;
+            Editar.HeaderText = "Editar";
+            Editar.Name = "Editar";
+            Editar.ReadOnly = true;
+            // 
+            // Eliminar
+            // 
+            Eliminar.Frozen = true;
+            Eliminar.HeaderText = "Eliminar";
+            Eliminar.Name = "Eliminar";
+            Eliminar.ReadOnly = true;
+            // 
             // F_Facturacion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -315,14 +316,6 @@
         private Button BT_GuardarFactura;
         private Button BT_AgregarProducto;
         private DataGridView DGV_DetalleFactura;
-        private DataGridViewTextBoxColumn IdProduc;
-        private DataGridViewTextBoxColumn Qty;
-        private DataGridViewTextBoxColumn Price;
-        private DataGridViewTextBoxColumn Itebis;
-        private DataGridViewTextBoxColumn SubTotalDetalle;
-        private DataGridViewTextBoxColumn TotalDetalle;
-        private DataGridViewButtonColumn EditarProducto;
-        private DataGridViewButtonColumn EliminarProducto;
         private GroupBox groupBox2;
         private TextBox TXT_TotalFactura;
         private TextBox TXT_SubTotalFactura;
@@ -335,5 +328,13 @@
         private TextBox TXT_IdCliente;
         private Label label2;
         private Button BT_Buscar;
+        private DataGridViewTextBoxColumn IdProduc;
+        private DataGridViewTextBoxColumn Qty;
+        private DataGridViewTextBoxColumn Price;
+        private DataGridViewTextBoxColumn SubTotalDetalle;
+        private DataGridViewTextBoxColumn Itebis;
+        private DataGridViewTextBoxColumn TotalDetalle;
+        private DataGridViewButtonColumn Editar;
+        private DataGridViewButtonColumn Eliminar;
     }
 }

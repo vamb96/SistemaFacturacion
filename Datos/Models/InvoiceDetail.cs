@@ -13,7 +13,7 @@ namespace Datos.Models
         public int ProductId { get; set; }
         public int Qty { get; set; }
         public decimal Price { get; set; }
-        public decimal Itebis { get; set; }
+        public decimal Itbis { get; set; }
         public decimal SubTotal { get; set; }
         public decimal Total { get; set; }
         public Product producto { get; set; }

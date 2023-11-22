@@ -17,16 +17,16 @@ namespace SistemaFacturacion
         IServiceInvoice _serviceInvoice;
         Customer _Customer;
         Invoice invoice;
-        
-        
-        
+
+
+
         public F_AgregarClienteFactura(IServiceInvoice Serviceinvoice, Invoice invoices)
         {
             InitializeComponent();
             _serviceInvoice = Serviceinvoice;
             invoice = invoices;
             ActualizarDGV();
-            
+
         }
 
         private void BT_Agregar_Click(object sender, EventArgs e)
@@ -38,10 +38,9 @@ namespace SistemaFacturacion
 
                 _Customer = _serviceInvoice.GetCustomerId(idCliente);
                 invoice.Customer = _Customer;
-                MessageBox.Show("El cliente ha sido selecionado");
                 this.Close();
             }
-            
+
         }
 
         private void BT_Buscar_Click(object sender, EventArgs e)
@@ -60,7 +59,7 @@ namespace SistemaFacturacion
 
         private void DGV_Clientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void ActualizarDGV()
