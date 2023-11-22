@@ -59,17 +59,36 @@ namespace Controladores.Services
             }
         }
 
-        public Product GetProduct(int id)
+        public List<Product> GetProducts(string Name)
         {
-            Product product = _context.Productos.FirstOrDefault(x => x.Id == id);
-                return product;
+            List<Product> listProduct = _context.Productos.Where(x => x.Description.Contains(Name)).ToList();
+                return listProduct;
         }
 
-        public Customer GetCustomer(int id)
+        public Customer GetCustomerId(int id)
         {
             Customer customer = _context.Customers.FirstOrDefault(x => x.Id == id);
             return customer;
         }
-            
+
+        public List<Customer> GetCustomerName(string name)
+        {
+            List<Customer> listCustomers = _context.Customers.Where(p => p.CustName.Contains(name)).ToList();
+            return listCustomers;
+        }
+        public List<Customer> GetCustomerAll()
+        {
+            return _context.Customers.ToList();
+        }
+
+        public List<Product> GetProductAll()
+        {
+            return _context.Productos.ToList();
+        }
+
+        public Product GetProductId(int id)
+        {
+            return _context.Productos.FirstOrDefault(x => x.Id == id);
+        }
     }
 }

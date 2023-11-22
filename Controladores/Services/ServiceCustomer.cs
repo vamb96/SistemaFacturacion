@@ -23,16 +23,20 @@ namespace Controladores.Services
             _context.SaveChanges();
         }
 
-        public bool Delete(Customer customer)
+        public bool Delete(int Id)
         {
-            Customer _customer = _context.Customers.FirstOrDefault(x => x.Id == customer.Id);
+            Customer _customer = _context.Customers.FirstOrDefault(x => x.Id == Id);
             if (_customer != null)
             {
                 _context.Customers.Remove(_customer);
                 _context.SaveChanges();
-                return _context.SaveChanges() > 0;
+                return true;
             }
-            return false;
+            else
+            {
+                return false;
+
+            }
         }
 
         public Customer Get(int id)
@@ -52,7 +56,6 @@ namespace Controladores.Services
 
             if (_customer != null)
             {
-                _customer.Id = customer.Id;
                 _customer.CustName = customer.CustName;
                 _customer.Adress = customer.Adress;
                 _customer.Status = customer.Status;
@@ -61,6 +64,12 @@ namespace Controladores.Services
                 _context.Entry(_customer).State = EntityState.Modified;
                 _context.SaveChanges();
             }
+        }
+        
+        public List<Customer> GetCustomers(string name)
+        {
+            List<Customer> listCustomer = _context.Customers.Where(p => p.CustName.Contains(name)).ToList();
+            return listCustomer;
         }
     }
 }

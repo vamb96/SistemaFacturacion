@@ -14,7 +14,11 @@ namespace Datos.Interfaces
         public bool Delete(Invoice invoice);
         public Invoice Get(int id);
         public List<Invoice> GetAll();
-        public Product GetProduct(int id);
-        public Customer GetCustomer(int id);
+        public List<Product> GetProducts(string Name);
+        public Customer GetCustomerId(int id);
+        public List<Customer> GetCustomerName(string name);
+        public List<Customer> GetCustomerAll();
+        public List<Product> GetProductAll();
+        public Product GetProductId(int id);
     }
 }

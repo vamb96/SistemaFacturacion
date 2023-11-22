@@ -11,8 +11,9 @@ namespace Datos.Interfaces
     {
         public void Add(Customer customer);
         public void Update(Customer customer, int id);
-        public bool Delete(Customer customer);
+        public bool Delete(int customer);
         public Customer Get(int id);
         public List<Customer> GetAll();
+        public List<Customer> GetCustomers(string item);
     }
 }

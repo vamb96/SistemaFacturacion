@@ -10,7 +10,7 @@ namespace Datos.Models
     {
         public int id { get; set; }
         public int InvoiceId { get; set; }
-        public int IdProducto { get; set; }
+        public int ProductId { get; set; }
         public int Qty { get; set; }
         public decimal Price { get; set; }
         public decimal Itebis { get; set; }
