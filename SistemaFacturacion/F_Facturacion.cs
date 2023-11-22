@@ -15,7 +15,7 @@ namespace SistemaFacturacion
 {
     public partial class F_Facturacion : Form
     {
-        IServiceInvoice _service = new ServiceInvoice("Data Source=LOCALHOST;Initial Catalog=SistemaFacturacion;Integrated Security=True;Trust Server Certificate=True;");
+        IServiceInvoice _service = new ServiceInvoice("Data Source=VICTOR\\MSSQLSERVER01;Initial Catalog=SistemaFacturacion;Integrated Security=True;Trust Server Certificate=True;");
         Invoice invoice = new Invoice();
         InvoiceDetail InvoiceDetail;
         //Action ActualizarTotales = CalcularTotales;

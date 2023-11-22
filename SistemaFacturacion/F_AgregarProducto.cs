@@ -14,7 +14,7 @@ namespace SistemaFacturacion
 {
     public partial class F_AgregarProducto : Form
     {
-        IServiceProduct service = new ServiceProduct("Data Source=LOCALHOST;Initial Catalog=SistemaFacturacion;Integrated Security=True;Trust Server Certificate=True;");
+        IServiceProduct service = new ServiceProduct("Data Source=VICTOR\\MSSQLSERVER01;Initial Catalog=SistemaFacturacion;Integrated Security=True;Trust Server Certificate=True;");
         public F_AgregarProducto()
         {
             InitializeComponent();
