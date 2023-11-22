@@ -23,14 +23,38 @@ namespace SistemaFacturacion
 
         private void BT_Agregar_Click(object sender, EventArgs e)
         {
-            Customer customer = new Customer();
-            customer.CustName = TXT_CustName.Text;
-            customer.Adress = TXT_Adress.Text;
-            customer.Status = TXT_Status.Text;
-            customer.IsActivo = CKB_IsActivo.Checked;
-            customer.CustomerTypeId = CB_CustomerType.SelectedIndex;
+            try
+            {
+                Customer customer = new Customer();
+                customer.CustName = TXT_CustName.Text;
+                customer.Adress = TXT_Adress.Text;
+                if (CB_Status.SelectedItem == "Activo")
+                {
+                    customer.Status = true;
+                }
+                else
+                {
+                    customer.Status = false;
 
-            _customer.Add(customer);
+                }
+                customer.IsActivo = CKB_IsActivo.Checked;
+                if (CB_CustomerType.SelectedItem == "Contado")
+                {
+                    customer.CustomerTypeId = 1;
+                }
+                else
+                {
+                    customer.CustomerTypeId = 2;
+                }
+                _customer.Add(customer);
+                MessageBox.Show($"Cliente:{customer.CustName} ha sido añadido con exito");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ha ocurrido un error al agregar el cliente");
+            }
+            
         }
     }
 }

@@ -36,10 +36,10 @@
             label6 = new Label();
             TXT_CustName = new TextBox();
             TXT_Adress = new TextBox();
-            TXT_Status = new TextBox();
             CKB_IsActivo = new CheckBox();
             CB_CustomerType = new ComboBox();
             BT_Agregar = new Button();
+            CB_Status = new ComboBox();
             SuspendLayout();
             // 
             // label1
@@ -111,13 +111,6 @@
             TXT_Adress.Size = new Size(265, 23);
             TXT_Adress.TabIndex = 7;
             // 
-            // TXT_Status
-            // 
-            TXT_Status.Location = new Point(116, 143);
-            TXT_Status.Name = "TXT_Status";
-            TXT_Status.Size = new Size(265, 23);
-            TXT_Status.TabIndex = 8;
-            // 
             // CKB_IsActivo
             // 
             CKB_IsActivo.AutoSize = true;
@@ -148,15 +141,25 @@
             BT_Agregar.UseVisualStyleBackColor = true;
             BT_Agregar.Click += BT_Agregar_Click;
             // 
+            // CB_Status
+            // 
+            CB_Status.DropDownStyle = ComboBoxStyle.DropDownList;
+            CB_Status.FormattingEnabled = true;
+            CB_Status.Items.AddRange(new object[] { "Inactivo", "Activo" });
+            CB_Status.Location = new Point(116, 143);
+            CB_Status.Name = "CB_Status";
+            CB_Status.Size = new Size(121, 23);
+            CB_Status.TabIndex = 12;
+            // 
             // F_AgregarCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(467, 332);
+            Controls.Add(CB_Status);
             Controls.Add(BT_Agregar);
             Controls.Add(CB_CustomerType);
             Controls.Add(CKB_IsActivo);
-            Controls.Add(TXT_Status);
             Controls.Add(TXT_Adress);
             Controls.Add(TXT_CustName);
             Controls.Add(label6);
@@ -181,9 +184,9 @@
         private Label label6;
         private TextBox TXT_CustName;
         private TextBox TXT_Adress;
-        private TextBox TXT_Status;
         private CheckBox CKB_IsActivo;
         private ComboBox CB_CustomerType;
         private Button BT_Agregar;
+        private ComboBox CB_Status;
     }
 }

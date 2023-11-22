@@ -23,14 +23,14 @@ namespace Controladores.Services
             _context.SaveChanges();
         }
 
-        public bool Delete(Product product)
+        public bool Delete(int Id)
         {
-            Product product1 = _context.Productos.FirstOrDefault(x => x.Id == product.Id);
+            Product product1 = _context.Productos.FirstOrDefault(x => x.Id == Id);
             if (product1 != null)
             {
                 _context.Productos.Remove(product1);
                 _context.SaveChanges();
-                return _context.SaveChanges() > 0;
+                return true;
             }
             return false;
         }
@@ -57,6 +57,15 @@ namespace Controladores.Services
                 _context.SaveChanges();
 
             }
+        }
+
+        public List<Product> GetProducts(string nombre)
+        {
+            List<Product> listProducts = _context.Productos
+        .Where(p => p.Description.Contains(nombre))
+        .ToList();
+
+            return listProducts;
         }
     }
 }

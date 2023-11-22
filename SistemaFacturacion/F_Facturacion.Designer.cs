@@ -61,11 +61,11 @@
             // LBL_Fecha
             // 
             LBL_Fecha.AutoSize = true;
-            LBL_Fecha.Location = new Point(929, 19);
+            LBL_Fecha.Location = new Point(862, 29);
             LBL_Fecha.Name = "LBL_Fecha";
-            LBL_Fecha.Size = new Size(41, 15);
+            LBL_Fecha.Size = new Size(38, 15);
             LBL_Fecha.TabIndex = 9;
-            LBL_Fecha.Text = "Fecha:";
+            LBL_Fecha.Text = "Fecha";
             // 
             // groupBox1
             // 

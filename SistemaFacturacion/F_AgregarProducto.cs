@@ -1,5 +1,6 @@
 ﻿using Controladores.Services;
 using Datos.Interfaces;
+using Datos.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,15 +15,19 @@ namespace SistemaFacturacion
 {
     public partial class F_AgregarProducto : Form
     {
-        IServiceProduct service = new ServiceProduct("Data Source=LOCALHOST;Initial Catalog=SistemaFacturacion;Integrated Security=True;Trust Server Certificate=True;");
-        public F_AgregarProducto()
+        IServiceProduct _serviceProduct;
+        public F_AgregarProducto(IServiceProduct serviceProduct)
         {
             InitializeComponent();
+            _serviceProduct = serviceProduct;
         }
 
         private void BT_Agregar_Click(object sender, EventArgs e)
         {
-
+            Product product = new Product();
+            product.Description = TXT_Description.Text;
+            product.IsActivo = CKB_IsActivo.Checked;
+            _serviceProduct.Add(product);
         }
     }
 }

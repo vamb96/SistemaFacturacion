@@ -12,7 +12,7 @@ namespace Datos.Models
         public int Id { get; set; }
         public string CustName { get; set; }
         public string Adress { get; set; }
-        public string Status { get; set; }
+        public bool Status { get; set; }
         public bool IsActivo { get; set; }
         public int CustomerTypeId { get; set; }
         public CustomerTypes CustomerType { get; set; }

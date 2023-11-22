@@ -15,24 +15,63 @@ namespace SistemaFacturacion
     public partial class F_AgregarClienteFactura : Form
     {
         IServiceInvoice _serviceInvoice;
-        Customer Customer;
+        Customer _Customer;
         Invoice invoice;
-        public F_AgregarClienteFactura(IServiceInvoice Serviceinvoice, Invoice invoice)
+        public F_AgregarClienteFactura(IServiceInvoice Serviceinvoice, Invoice invoices)
         {
             InitializeComponent();
             _serviceInvoice = Serviceinvoice;
-            invoice = invoice;
+            invoice = invoices;
+            ActualizarDGV();
         }
 
         private void BT_Agregar_Click(object sender, EventArgs e)
         {
-            invoice.Customer = Customer;
+            if (DGV_Clientes.SelectedRows.Count > 0)
+            {
+                DataGridViewRow filaSeleccionada = DGV_Clientes.SelectedRows[0];
+                int idCliente = (int)filaSeleccionada.Cells[0].Value;
+
+                _Customer = _serviceInvoice.GetCustomerId(idCliente);
+                invoice.Customer = _Customer;
+                MessageBox.Show("El cliente ha sido selecionado");
+                this.Close();
+            }
+            
         }
 
         private void BT_Buscar_Click(object sender, EventArgs e)
         {
-            Customer = new Customer();
-            Customer = _serviceInvoice.GetCustomer(Convert.ToInt32(TXT_Id));
+            List<Customer> listCustomers = _serviceInvoice.GetCustomerName(TXT_Name.Text);
+
+            if (listCustomers.Count > 0)
+            {
+                DGV_Clientes.Rows.Clear();
+                foreach (Customer item in listCustomers)
+                {
+                    DGV_Clientes.Rows.Add(item.Id, item.CustName, item.Adress, item.Status, item.IsActivo, item.CustomerTypeId);
+                }
+            }
+        }
+
+        private void DGV_Clientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void ActualizarDGV()
+        {
+            List<Customer> listCustomer = _serviceInvoice.GetCustomerAll();
+
+            if (listCustomer.Count > 0)
+            {
+                DGV_Clientes.Rows.Clear();
+                foreach (Customer item in listCustomer)
+                {
+                    DGV_Clientes.Rows.Add(item.Id, item.CustName, item.Adress, item.Status, item.IsActivo, item.CustomerTypeId);
+                }
+
+            }
         }
     }
 }
