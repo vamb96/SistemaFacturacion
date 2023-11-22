@@ -95,6 +95,7 @@
             BT_GuardarFactura.TabIndex = 8;
             BT_GuardarFactura.Text = "Guardar Factura";
             BT_GuardarFactura.UseVisualStyleBackColor = true;
+            BT_GuardarFactura.Click += BT_GuardarFactura_Click;
             // 
             // BT_AgregarProducto
             // 

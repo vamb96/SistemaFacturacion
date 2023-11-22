@@ -17,12 +17,16 @@ namespace SistemaFacturacion
         IServiceInvoice _serviceInvoice;
         Customer _Customer;
         Invoice invoice;
+        
+        
+        
         public F_AgregarClienteFactura(IServiceInvoice Serviceinvoice, Invoice invoices)
         {
             InitializeComponent();
             _serviceInvoice = Serviceinvoice;
             invoice = invoices;
             ActualizarDGV();
+            
         }
 
         private void BT_Agregar_Click(object sender, EventArgs e)

@@ -51,7 +51,7 @@ namespace Controladores.Services
             InvoiceDetail invoiceDetail1 = _context.InvoicesDetail.FirstOrDefault(x => x.id == id);
             if (invoiceDetail1 != null)
             {
-                invoiceDetail1.IdProducto = invoiceDetail.IdProducto;
+                invoiceDetail1.ProductId = invoiceDetail.ProductId;
                 invoiceDetail1.Qty = invoiceDetail.Qty;
                 invoiceDetail1.Price = invoiceDetail.Price;
                 invoiceDetail1.Itebis = invoiceDetail.Itebis;

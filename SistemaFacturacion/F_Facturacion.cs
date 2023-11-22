@@ -18,25 +18,24 @@ namespace SistemaFacturacion
     {
         IServiceInvoice _service = new ServiceInvoice("Data Source=VAMB;Initial Catalog=SistemaFacturacion;Integrated Security=True;Trust Server Certificate=True;");
         Invoice invoice;
-        InvoiceDetail InvoiceDetail;
-        //private static int idTemporal = 5; // Inicializar el contador
-
-
-        //Action ActualizarTotales = CalcularTotales;
+        Action _action;
 
         public F_Facturacion()
         {
             InitializeComponent();
             invoice = new Invoice();
-            InvoiceDetail = new InvoiceDetail();
-            LBL_Fecha.Text = DateTime.Now.ToString();
+            invoice.ListDetails = new List<InvoiceDetail>();
+            invoice.dateTime = DateTime.Now;
+            LBL_Fecha.Text = invoice.dateTime.ToString();
+            _action = CalcularTotales; // Chequear
             //invoice.Id = IDTemporal();
         }
 
         private void BT_AgregarProducto_Click(object sender, EventArgs e)
         {
-            F_AgregarProductoFactura mostrar = new F_AgregarProductoFactura(_service, InvoiceDetail, invoice);
+            F_AgregarProductoFactura mostrar = new F_AgregarProductoFactura(_service, invoice, _action);
             mostrar.ShowDialog();
+            ActualizarDGV();
 
 
         }
@@ -51,6 +50,9 @@ namespace SistemaFacturacion
 
         public void CalcularTotales()
         {
+            invoice.Total = 0;
+            invoice.SubTotal = 0;
+            invoice.TotalItbis = 0;
             foreach (InvoiceDetail item in invoice.ListDetails)
             {
                 invoice.TotalItbis += item.Itebis;
@@ -62,14 +64,22 @@ namespace SistemaFacturacion
             TXT_TotalFactura.Text = invoice.Total.ToString();
         }
 
-        /*
-        public static int IDTemporal()
+        private void ActualizarDGV()
         {
-            
-            int id = idTemporal;
-            idTemporal++; 
-            return id;
+            DGV_DetalleFactura.Rows.Clear();
+
+            foreach (InvoiceDetail item in invoice.ListDetails)
+            {
+                DGV_DetalleFactura.Rows.Add(item.producto.Description, item.Qty, item.Price, item.Itebis, item.SubTotal, item.Total);
+            }
+
         }
-        */
+
+        private void BT_GuardarFactura_Click(object sender, EventArgs e)
+        {
+            CalcularTotales();
+            _service.Add(invoice);
+        }
+
     }
 }
