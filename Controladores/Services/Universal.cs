@@ -10,7 +10,7 @@ namespace Controladores.Services
     {
         public static string GetStringConexion()
         {
-            return "Data Source=VICTOR\\MSSQLSERVER01;Initial Catalog=SistemaFacturacion;Integrated Security=True;Trust Server Certificate=True;";
+            return "Data Source=VAMB;Initial Catalog=SistemaFacturacion;Integrated Security=True;Trust Server Certificate=True;";
         }
     }
 }

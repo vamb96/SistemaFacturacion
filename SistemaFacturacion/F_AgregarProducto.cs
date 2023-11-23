@@ -32,7 +32,7 @@ namespace SistemaFacturacion
                 {
                     product.Description = TXT_Description.Text;
                     product.IsActivo = CKB_IsActivo.Checked;
-                    product.Price = int.Parse(TXT_Price.Text);
+                    product.Price = decimal.Parse(TXT_Price.Text);
                     _serviceProduct.Add(product);
 
                     MessageBox.Show("El producto ha sido añadido con exito");
@@ -43,6 +43,10 @@ namespace SistemaFacturacion
 
                     MessageBox.Show("Ha ocurrido un problema al agregar el producto");
                 }
+            }
+            else
+            {
+                MessageBox.Show("Error al guardar el producto");
             }
 
         }
@@ -69,7 +73,7 @@ namespace SistemaFacturacion
             }
             else
             {
-                return false;
+                return true;
             }
         }
     }

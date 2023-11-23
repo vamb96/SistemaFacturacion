@@ -34,12 +34,11 @@
             BT_Agregar = new Button();
             TXT_Buscar = new TextBox();
             DGV_CustomerType = new DataGridView();
+            label1 = new Label();
             ID = new DataGridViewTextBoxColumn();
             CustName = new DataGridViewTextBoxColumn();
-            IsActivo = new DataGridViewCheckBoxColumn();
             Editar = new DataGridViewButtonColumn();
             Eliminar = new DataGridViewButtonColumn();
-            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)DGV_CustomerType).BeginInit();
             SuspendLayout();
             // 
@@ -47,7 +46,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(120, 9);
+            label2.Location = new Point(114, 18);
             label2.Name = "label2";
             label2.Size = new Size(255, 25);
             label2.TabIndex = 17;
@@ -58,7 +57,7 @@
             BT_Buscar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             BT_Buscar.Image = (Image)resources.GetObject("BT_Buscar.Image");
             BT_Buscar.ImageAlign = ContentAlignment.MiddleLeft;
-            BT_Buscar.Location = new Point(248, 76);
+            BT_Buscar.Location = new Point(193, 75);
             BT_Buscar.Name = "BT_Buscar";
             BT_Buscar.Size = new Size(91, 27);
             BT_Buscar.TabIndex = 13;
@@ -71,7 +70,7 @@
             BT_Agregar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             BT_Agregar.Image = (Image)resources.GetObject("BT_Agregar.Image");
             BT_Agregar.ImageAlign = ContentAlignment.MiddleLeft;
-            BT_Agregar.Location = new Point(409, 76);
+            BT_Agregar.Location = new Point(318, 73);
             BT_Agregar.Name = "BT_Agregar";
             BT_Agregar.Size = new Size(99, 29);
             BT_Agregar.TabIndex = 14;
@@ -81,9 +80,9 @@
             // 
             // TXT_Buscar
             // 
-            TXT_Buscar.Location = new Point(74, 77);
+            TXT_Buscar.Location = new Point(65, 77);
             TXT_Buscar.Name = "TXT_Buscar";
-            TXT_Buscar.Size = new Size(167, 23);
+            TXT_Buscar.Size = new Size(124, 23);
             TXT_Buscar.TabIndex = 12;
             // 
             // DGV_CustomerType
@@ -92,16 +91,25 @@
             DGV_CustomerType.AllowUserToDeleteRows = false;
             DGV_CustomerType.AllowUserToResizeColumns = false;
             DGV_CustomerType.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGV_CustomerType.Columns.AddRange(new DataGridViewColumn[] { ID, CustName, IsActivo, Editar, Eliminar });
-            DGV_CustomerType.Location = new Point(12, 106);
+            DGV_CustomerType.Columns.AddRange(new DataGridViewColumn[] { ID, CustName, Editar, Eliminar });
+            DGV_CustomerType.Location = new Point(15, 109);
             DGV_CustomerType.MultiSelect = false;
             DGV_CustomerType.Name = "DGV_CustomerType";
             DGV_CustomerType.RowHeadersVisible = false;
             DGV_CustomerType.RowTemplate.Height = 25;
             DGV_CustomerType.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DGV_CustomerType.Size = new Size(496, 207);
+            DGV_CustomerType.Size = new Size(402, 207);
             DGV_CustomerType.TabIndex = 16;
             DGV_CustomerType.CellClick += DGV_CustomerType_CellClick;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(15, 80);
+            label1.Name = "label1";
+            label1.Size = new Size(54, 15);
+            label1.TabIndex = 15;
+            label1.Text = "Nombre:";
             // 
             // ID
             // 
@@ -117,15 +125,6 @@
             CustName.Name = "CustName";
             CustName.ReadOnly = true;
             // 
-            // IsActivo
-            // 
-            IsActivo.Frozen = true;
-            IsActivo.HeaderText = "Activo";
-            IsActivo.Name = "IsActivo";
-            IsActivo.ReadOnly = true;
-            IsActivo.Resizable = DataGridViewTriState.True;
-            IsActivo.SortMode = DataGridViewColumnSortMode.Automatic;
-            // 
             // Editar
             // 
             Editar.Frozen = true;
@@ -139,15 +138,6 @@
             Eliminar.HeaderText = "Eliminar";
             Eliminar.Name = "Eliminar";
             Eliminar.ReadOnly = true;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(15, 80);
-            label1.Name = "label1";
-            label1.Size = new Size(54, 15);
-            label1.TabIndex = 15;
-            label1.Text = "Nombre:";
             // 
             // F_AdministrarTipoCliente
             // 
@@ -176,11 +166,10 @@
         private Button BT_Agregar;
         private TextBox TXT_Buscar;
         private DataGridView DGV_CustomerType;
+        private Label label1;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn CustName;
-        private DataGridViewCheckBoxColumn IsActivo;
         private DataGridViewButtonColumn Editar;
         private DataGridViewButtonColumn Eliminar;
-        private Label label1;
     }
 }
