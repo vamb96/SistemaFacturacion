@@ -16,7 +16,7 @@ namespace SistemaFacturacion
 {
     public partial class F_Facturacion : Form
     {
-        IServiceInvoice _service = new ServiceInvoice("Data Source=VAMB;Initial Catalog=SistemaFacturacion;Integrated Security=True;Trust Server Certificate=True;");
+        IServiceInvoice _service = new ServiceInvoice(Universal.GetStringConexion());
         Invoice invoice;
         Action _actualizarTotales;
         Action _actualizarDGV;

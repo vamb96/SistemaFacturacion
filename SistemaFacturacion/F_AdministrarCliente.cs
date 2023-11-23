@@ -15,7 +15,7 @@ namespace SistemaFacturacion
 {
     public partial class F_AdministrarCliente : Form
     {
-        IServiceCustomer ServiceCustomer = new ServiceCustomer("Data Source=VAMB;Initial Catalog=SistemaFacturacion;Integrated Security=True;Trust Server Certificate=True;");
+        IServiceCustomer ServiceCustomer = new ServiceCustomer(Universal.GetStringConexion());
 
         public F_AdministrarCliente()
         {
