@@ -28,12 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_Facturacion));
             LBL_Fecha = new Label();
             groupBox1 = new GroupBox();
+            BT_ListadoFacturas = new Button();
             BT_GuardarFactura = new Button();
             BT_AgregarProducto = new Button();
             BT_Buscar = new Button();
             DGV_DetalleFactura = new DataGridView();
+            Id = new DataGridViewTextBoxColumn();
+            ProductId = new DataGridViewTextBoxColumn();
+            IdProduc = new DataGridViewTextBoxColumn();
+            Qty = new DataGridViewTextBoxColumn();
+            Price = new DataGridViewTextBoxColumn();
+            SubTotalDetalle = new DataGridViewTextBoxColumn();
+            Itebis = new DataGridViewTextBoxColumn();
+            TotalDetalle = new DataGridViewTextBoxColumn();
+            Editar = new DataGridViewButtonColumn();
+            Eliminar = new DataGridViewButtonColumn();
             groupBox2 = new GroupBox();
             TXT_TotalFactura = new TextBox();
             TXT_SubTotalFactura = new TextBox();
@@ -45,14 +57,6 @@
             TXT_NombreCliente = new TextBox();
             TXT_IdCliente = new TextBox();
             label2 = new Label();
-            IdProduc = new DataGridViewTextBoxColumn();
-            Qty = new DataGridViewTextBoxColumn();
-            Price = new DataGridViewTextBoxColumn();
-            SubTotalDetalle = new DataGridViewTextBoxColumn();
-            Itebis = new DataGridViewTextBoxColumn();
-            TotalDetalle = new DataGridViewTextBoxColumn();
-            Editar = new DataGridViewButtonColumn();
-            Eliminar = new DataGridViewButtonColumn();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_DetalleFactura).BeginInit();
             groupBox2.SuspendLayout();
@@ -61,7 +65,7 @@
             // LBL_Fecha
             // 
             LBL_Fecha.AutoSize = true;
-            LBL_Fecha.Location = new Point(862, 29);
+            LBL_Fecha.Location = new Point(888, 19);
             LBL_Fecha.Name = "LBL_Fecha";
             LBL_Fecha.Size = new Size(38, 15);
             LBL_Fecha.TabIndex = 9;
@@ -69,6 +73,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(BT_ListadoFacturas);
             groupBox1.Controls.Add(LBL_Fecha);
             groupBox1.Controls.Add(BT_GuardarFactura);
             groupBox1.Controls.Add(BT_AgregarProducto);
@@ -86,13 +91,28 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Factura";
             // 
+            // BT_ListadoFacturas
+            // 
+            BT_ListadoFacturas.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            BT_ListadoFacturas.Image = (Image)resources.GetObject("BT_ListadoFacturas.Image");
+            BT_ListadoFacturas.ImageAlign = ContentAlignment.MiddleLeft;
+            BT_ListadoFacturas.Location = new Point(83, -5);
+            BT_ListadoFacturas.Name = "BT_ListadoFacturas";
+            BT_ListadoFacturas.Size = new Size(196, 28);
+            BT_ListadoFacturas.TabIndex = 4;
+            BT_ListadoFacturas.Text = "Ver Listado de facturas";
+            BT_ListadoFacturas.UseVisualStyleBackColor = true;
+            BT_ListadoFacturas.Click += ListadoFacturas_Click;
+            // 
             // BT_GuardarFactura
             // 
             BT_GuardarFactura.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            BT_GuardarFactura.Location = new Point(862, 268);
+            BT_GuardarFactura.Image = (Image)resources.GetObject("BT_GuardarFactura.Image");
+            BT_GuardarFactura.ImageAlign = ContentAlignment.MiddleLeft;
+            BT_GuardarFactura.Location = new Point(855, 298);
             BT_GuardarFactura.Name = "BT_GuardarFactura";
-            BT_GuardarFactura.Size = new Size(186, 39);
-            BT_GuardarFactura.TabIndex = 8;
+            BT_GuardarFactura.Size = new Size(193, 39);
+            BT_GuardarFactura.TabIndex = 3;
             BT_GuardarFactura.Text = "Guardar Factura";
             BT_GuardarFactura.UseVisualStyleBackColor = true;
             BT_GuardarFactura.Click += BT_GuardarFactura_Click;
@@ -100,10 +120,12 @@
             // BT_AgregarProducto
             // 
             BT_AgregarProducto.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            BT_AgregarProducto.Location = new Point(862, 76);
+            BT_AgregarProducto.Image = (Image)resources.GetObject("BT_AgregarProducto.Image");
+            BT_AgregarProducto.ImageAlign = ContentAlignment.MiddleLeft;
+            BT_AgregarProducto.Location = new Point(855, 106);
             BT_AgregarProducto.Name = "BT_AgregarProducto";
-            BT_AgregarProducto.Size = new Size(186, 39);
-            BT_AgregarProducto.TabIndex = 7;
+            BT_AgregarProducto.Size = new Size(193, 39);
+            BT_AgregarProducto.TabIndex = 2;
             BT_AgregarProducto.Text = "Agregar Producto";
             BT_AgregarProducto.UseVisualStyleBackColor = true;
             BT_AgregarProducto.Click += BT_AgregarProducto_Click;
@@ -111,18 +133,24 @@
             // BT_Buscar
             // 
             BT_Buscar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            BT_Buscar.Image = (Image)resources.GetObject("BT_Buscar.Image");
+            BT_Buscar.ImageAlign = ContentAlignment.MiddleLeft;
             BT_Buscar.Location = new Point(525, 22);
             BT_Buscar.Name = "BT_Buscar";
-            BT_Buscar.Size = new Size(157, 36);
-            BT_Buscar.TabIndex = 7;
+            BT_Buscar.Size = new Size(189, 36);
+            BT_Buscar.TabIndex = 1;
             BT_Buscar.Text = "Agregar Cliente";
             BT_Buscar.UseVisualStyleBackColor = true;
             BT_Buscar.Click += BT_AgregarClienteFactura_Click;
             // 
             // DGV_DetalleFactura
             // 
+            DGV_DetalleFactura.AllowUserToAddRows = false;
+            DGV_DetalleFactura.AllowUserToDeleteRows = false;
+            DGV_DetalleFactura.AllowUserToResizeColumns = false;
+            DGV_DetalleFactura.AllowUserToResizeRows = false;
             DGV_DetalleFactura.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGV_DetalleFactura.Columns.AddRange(new DataGridViewColumn[] { IdProduc, Qty, Price, SubTotalDetalle, Itebis, TotalDetalle, Editar, Eliminar });
+            DGV_DetalleFactura.Columns.AddRange(new DataGridViewColumn[] { Id, ProductId, IdProduc, Qty, Price, SubTotalDetalle, Itebis, TotalDetalle, Editar, Eliminar });
             DGV_DetalleFactura.Location = new Point(11, 76);
             DGV_DetalleFactura.MultiSelect = false;
             DGV_DetalleFactura.Name = "DGV_DetalleFactura";
@@ -133,6 +161,76 @@
             DGV_DetalleFactura.TabIndex = 6;
             DGV_DetalleFactura.CellClick += DGV_DetalleFactura_CellClick;
             // 
+            // Id
+            // 
+            Id.Frozen = true;
+            Id.HeaderText = "id";
+            Id.Name = "Id";
+            Id.Visible = false;
+            // 
+            // ProductId
+            // 
+            ProductId.Frozen = true;
+            ProductId.HeaderText = "ProductId";
+            ProductId.Name = "ProductId";
+            ProductId.Visible = false;
+            // 
+            // IdProduc
+            // 
+            IdProduc.Frozen = true;
+            IdProduc.HeaderText = "Descripcion";
+            IdProduc.Name = "IdProduc";
+            IdProduc.ReadOnly = true;
+            // 
+            // Qty
+            // 
+            Qty.Frozen = true;
+            Qty.HeaderText = "Cantidad";
+            Qty.Name = "Qty";
+            Qty.ReadOnly = true;
+            // 
+            // Price
+            // 
+            Price.Frozen = true;
+            Price.HeaderText = "Precio";
+            Price.Name = "Price";
+            Price.ReadOnly = true;
+            // 
+            // SubTotalDetalle
+            // 
+            SubTotalDetalle.Frozen = true;
+            SubTotalDetalle.HeaderText = "SubTotal";
+            SubTotalDetalle.Name = "SubTotalDetalle";
+            SubTotalDetalle.ReadOnly = true;
+            // 
+            // Itebis
+            // 
+            Itebis.Frozen = true;
+            Itebis.HeaderText = "Itbis";
+            Itebis.Name = "Itebis";
+            Itebis.ReadOnly = true;
+            // 
+            // TotalDetalle
+            // 
+            TotalDetalle.Frozen = true;
+            TotalDetalle.HeaderText = "Total";
+            TotalDetalle.Name = "TotalDetalle";
+            TotalDetalle.ReadOnly = true;
+            // 
+            // Editar
+            // 
+            Editar.Frozen = true;
+            Editar.HeaderText = "Editar";
+            Editar.Name = "Editar";
+            Editar.ReadOnly = true;
+            // 
+            // Eliminar
+            // 
+            Eliminar.Frozen = true;
+            Eliminar.HeaderText = "Eliminar";
+            Eliminar.Name = "Eliminar";
+            Eliminar.ReadOnly = true;
+            // 
             // groupBox2
             // 
             groupBox2.Controls.Add(TXT_TotalFactura);
@@ -142,7 +240,7 @@
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(label4);
             groupBox2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox2.Location = new Point(862, 125);
+            groupBox2.Location = new Point(862, 155);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(186, 128);
             groupBox2.TabIndex = 5;
@@ -218,7 +316,7 @@
             TXT_NombreCliente.Name = "TXT_NombreCliente";
             TXT_NombreCliente.ReadOnly = true;
             TXT_NombreCliente.Size = new Size(313, 23);
-            TXT_NombreCliente.TabIndex = 2;
+            TXT_NombreCliente.TabIndex = 5;
             // 
             // TXT_IdCliente
             // 
@@ -226,7 +324,7 @@
             TXT_IdCliente.Name = "TXT_IdCliente";
             TXT_IdCliente.ReadOnly = true;
             TXT_IdCliente.Size = new Size(88, 23);
-            TXT_IdCliente.TabIndex = 1;
+            TXT_IdCliente.TabIndex = 10;
             // 
             // label2
             // 
@@ -237,69 +335,15 @@
             label2.TabIndex = 0;
             label2.Text = "ID:";
             // 
-            // IdProduc
-            // 
-            IdProduc.Frozen = true;
-            IdProduc.HeaderText = "Descripcion";
-            IdProduc.Name = "IdProduc";
-            IdProduc.ReadOnly = true;
-            // 
-            // Qty
-            // 
-            Qty.Frozen = true;
-            Qty.HeaderText = "Cantidad";
-            Qty.Name = "Qty";
-            Qty.ReadOnly = true;
-            // 
-            // Price
-            // 
-            Price.Frozen = true;
-            Price.HeaderText = "Precio";
-            Price.Name = "Price";
-            Price.ReadOnly = true;
-            // 
-            // SubTotalDetalle
-            // 
-            SubTotalDetalle.Frozen = true;
-            SubTotalDetalle.HeaderText = "SubTotal";
-            SubTotalDetalle.Name = "SubTotalDetalle";
-            SubTotalDetalle.ReadOnly = true;
-            // 
-            // Itebis
-            // 
-            Itebis.Frozen = true;
-            Itebis.HeaderText = "Itbis";
-            Itebis.Name = "Itebis";
-            Itebis.ReadOnly = true;
-            // 
-            // TotalDetalle
-            // 
-            TotalDetalle.Frozen = true;
-            TotalDetalle.HeaderText = "Total";
-            TotalDetalle.Name = "TotalDetalle";
-            TotalDetalle.ReadOnly = true;
-            // 
-            // Editar
-            // 
-            Editar.Frozen = true;
-            Editar.HeaderText = "Editar";
-            Editar.Name = "Editar";
-            Editar.ReadOnly = true;
-            // 
-            // Eliminar
-            // 
-            Eliminar.Frozen = true;
-            Eliminar.HeaderText = "Eliminar";
-            Eliminar.Name = "Eliminar";
-            Eliminar.ReadOnly = true;
-            // 
             // F_Facturacion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1089, 371);
             Controls.Add(groupBox1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "F_Facturacion";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Facturacion";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -328,6 +372,8 @@
         private TextBox TXT_IdCliente;
         private Label label2;
         private Button BT_Buscar;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn ProductId;
         private DataGridViewTextBoxColumn IdProduc;
         private DataGridViewTextBoxColumn Qty;
         private DataGridViewTextBoxColumn Price;
@@ -336,5 +382,6 @@
         private DataGridViewTextBoxColumn TotalDetalle;
         private DataGridViewButtonColumn Editar;
         private DataGridViewButtonColumn Eliminar;
+        private Button BT_ListadoFacturas;
     }
 }

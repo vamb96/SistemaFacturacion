@@ -16,9 +16,10 @@ namespace SistemaFacturacion
 {
     public partial class F_Facturacion : Form
     {
-        IServiceInvoice _service = new ServiceInvoice("Data Source=VICTOR\\MSSQLSERVER01;Initial Catalog=SistemaFacturacion;Integrated Security=True;Trust Server Certificate=True;");
+        IServiceInvoice _service = new ServiceInvoice("Data Source=VAMB;Initial Catalog=SistemaFacturacion;Integrated Security=True;Trust Server Certificate=True;");
         Invoice invoice;
         Action _actualizarTotales;
+        Action _actualizarDGV;
 
 
         public F_Facturacion()
@@ -29,6 +30,7 @@ namespace SistemaFacturacion
             invoice.dateTime = DateTime.Now;
             LBL_Fecha.Text = invoice.dateTime.ToString();
             _actualizarTotales = CalcularTotales;
+            _actualizarDGV = ActualizarDGV;
 
         }
 
@@ -57,7 +59,7 @@ namespace SistemaFacturacion
             invoice.TotalItbis = 0;
             foreach (InvoiceDetail item in invoice.ListDetails)
             {
-                invoice.TotalItbis += item.Itbis;
+                invoice.TotalItbis += item.TotalItbis;
                 invoice.SubTotal += item.SubTotal;
                 invoice.Total += item.Total;
             }
@@ -72,34 +74,26 @@ namespace SistemaFacturacion
 
             foreach (InvoiceDetail item in invoice.ListDetails)
             {
-                DGV_DetalleFactura.Rows.Add(item.producto.Description, item.Qty, item.Price, item.SubTotal, item.Itbis, item.Total);
+                DGV_DetalleFactura.Rows.Add(item.id, item.ProductId, item.producto.Description, item.Qty, item.Price, item.SubTotal, item.TotalItbis, item.Total);
             }
 
         }
 
         private void BT_GuardarFactura_Click(object sender, EventArgs e)
         {
-            try
+            if (invoice.Customer != null && invoice.ListDetails.Count >= 0)
             {
-                if (invoice.Customer != null && invoice.ListDetails.Count > 0)
-                {
-                    CalcularTotales();
-                    _service.Add(invoice);
-                    this.Hide();
-                    F_Facturacion mostrar = new F_Facturacion();
-                    mostrar.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("Complete los datos de la factura");
-                }
+                CalcularTotales();
+                _service.Add(invoice);
+                MessageBox.Show("Factura gurada con exito.");
+                this.Hide();
+                F_Facturacion mostrar = new F_Facturacion();
+                mostrar.ShowDialog();
             }
-            catch (Exception)
+            else
             {
-
-                MessageBox.Show("Ha ocurrido un error al guardar la factura");
+                MessageBox.Show("Complete los datos de la factura");
             }
-
 
         }
 
@@ -115,16 +109,16 @@ namespace SistemaFacturacion
             {
                 if (e.ColumnIndex == DGV_DetalleFactura.Columns["Editar"].Index && e.RowIndex >= 0)
                 {
-                    int idProduct = Convert.ToInt32(DGV_DetalleFactura.Rows[e.RowIndex].Cells["IdProduc"].Value);
+                    int idDetail = Convert.ToInt32(DGV_DetalleFactura.Rows[e.RowIndex].Cells["Id"].Value);
 
-                    F_EditarProductoFactura mostrar = new F_EditarProductoFactura(idProduct, invoice, _service, _actualizarTotales);
+                    F_EditarProductoFactura mostrar = new F_EditarProductoFactura(idDetail, invoice, _service, _actualizarTotales, _actualizarDGV);
                     mostrar.ShowDialog();
                     ActualizarDGV();
 
                 }
                 if (e.ColumnIndex == DGV_DetalleFactura.Columns["Eliminar"].Index && e.RowIndex >= 0)
                 {
-                    int idDetail = Convert.ToInt32(DGV_DetalleFactura.Rows[e.RowIndex].Cells["ID"].Value);
+                    int idDetail = Convert.ToInt32(DGV_DetalleFactura.Rows[e.RowIndex].Cells["Id"].Value);
 
                     DialogResult resultado = MessageBox.Show("¿Estás seguro de eliminar este producto?", "Confirmación", MessageBoxButtons.YesNo);
 
@@ -133,7 +127,7 @@ namespace SistemaFacturacion
                         try
                         {
 
-                            if (_service.DeleteDetail(idDetail))
+                            if (_service.DeleteDetail(idDetail, invoice))
                             {
                                 MessageBox.Show("El producto ha sido eliminado con exito");
                                 ActualizarDGV();
@@ -159,6 +153,12 @@ namespace SistemaFacturacion
 
                 MessageBox.Show("Ha ocurrido un error al seleccionar esta opcion.");
             }
+        }
+
+        private void ListadoFacturas_Click(object sender, EventArgs e)
+        {
+            F_ListaFacturas mostrar = new F_ListaFacturas(_service);
+            mostrar.ShowDialog();
         }
     }
 }

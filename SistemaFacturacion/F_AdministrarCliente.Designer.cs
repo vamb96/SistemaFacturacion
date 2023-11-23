@@ -28,12 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_AdministrarCliente));
             label1 = new Label();
             DGV_Customer = new DataGridView();
-            TXT_Buscar = new TextBox();
-            BT_Agregar = new Button();
-            BT_Buscar = new Button();
-            label2 = new Label();
             ID = new DataGridViewTextBoxColumn();
             CustName = new DataGridViewTextBoxColumn();
             Adress = new DataGridViewTextBoxColumn();
@@ -42,13 +39,17 @@
             CustomerType = new DataGridViewTextBoxColumn();
             Editar = new DataGridViewButtonColumn();
             Eliminar = new DataGridViewButtonColumn();
+            TXT_Buscar = new TextBox();
+            BT_Agregar = new Button();
+            BT_Buscar = new Button();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)DGV_Customer).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(89, 85);
+            label1.Location = new Point(21, 85);
             label1.Name = "label1";
             label1.Size = new Size(54, 15);
             label1.TabIndex = 0;
@@ -69,47 +70,8 @@
             DGV_Customer.RowTemplate.Height = 25;
             DGV_Customer.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DGV_Customer.Size = new Size(804, 207);
-            DGV_Customer.TabIndex = 1;
+            DGV_Customer.TabIndex = 4;
             DGV_Customer.CellClick += DGV_Customer_CellClick;
-            // 
-            // TXT_Buscar
-            // 
-            TXT_Buscar.Location = new Point(149, 80);
-            TXT_Buscar.Name = "TXT_Buscar";
-            TXT_Buscar.Size = new Size(153, 23);
-            TXT_Buscar.TabIndex = 2;
-            // 
-            // BT_Agregar
-            // 
-            BT_Agregar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            BT_Agregar.Location = new Point(742, 76);
-            BT_Agregar.Name = "BT_Agregar";
-            BT_Agregar.Size = new Size(80, 27);
-            BT_Agregar.TabIndex = 3;
-            BT_Agregar.Text = "Agregar";
-            BT_Agregar.UseVisualStyleBackColor = true;
-            BT_Agregar.Click += BT_Agregar_Click;
-            // 
-            // BT_Buscar
-            // 
-            BT_Buscar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            BT_Buscar.Location = new Point(322, 76);
-            BT_Buscar.Name = "BT_Buscar";
-            BT_Buscar.Size = new Size(80, 27);
-            BT_Buscar.TabIndex = 4;
-            BT_Buscar.Text = "Buscar";
-            BT_Buscar.UseVisualStyleBackColor = true;
-            BT_Buscar.Click += BT_Buscar_Click;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(301, 21);
-            label2.Name = "label2";
-            label2.Size = new Size(183, 25);
-            label2.TabIndex = 5;
-            label2.Text = "Administrar Cliente";
             // 
             // ID
             // 
@@ -171,18 +133,63 @@
             Eliminar.Name = "Eliminar";
             Eliminar.ReadOnly = true;
             // 
+            // TXT_Buscar
+            // 
+            TXT_Buscar.Location = new Point(81, 80);
+            TXT_Buscar.Name = "TXT_Buscar";
+            TXT_Buscar.Size = new Size(240, 23);
+            TXT_Buscar.TabIndex = 1;
+            // 
+            // BT_Agregar
+            // 
+            BT_Agregar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            BT_Agregar.Image = (Image)resources.GetObject("BT_Agregar.Image");
+            BT_Agregar.ImageAlign = ContentAlignment.MiddleLeft;
+            BT_Agregar.Location = new Point(718, 79);
+            BT_Agregar.Name = "BT_Agregar";
+            BT_Agregar.Size = new Size(104, 27);
+            BT_Agregar.TabIndex = 3;
+            BT_Agregar.Text = "Agregar";
+            BT_Agregar.UseVisualStyleBackColor = true;
+            BT_Agregar.Click += BT_Agregar_Click;
+            // 
+            // BT_Buscar
+            // 
+            BT_Buscar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            BT_Buscar.Image = (Image)resources.GetObject("BT_Buscar.Image");
+            BT_Buscar.ImageAlign = ContentAlignment.MiddleLeft;
+            BT_Buscar.Location = new Point(326, 78);
+            BT_Buscar.Name = "BT_Buscar";
+            BT_Buscar.Size = new Size(89, 27);
+            BT_Buscar.TabIndex = 2;
+            BT_Buscar.Text = "Buscar";
+            BT_Buscar.UseVisualStyleBackColor = true;
+            BT_Buscar.Click += BT_Buscar_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(301, 18);
+            label2.Name = "label2";
+            label2.Size = new Size(183, 25);
+            label2.TabIndex = 5;
+            label2.Text = "Administrar Cliente";
+            // 
             // F_AdministrarCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(856, 336);
+            ClientSize = new Size(844, 330);
             Controls.Add(label2);
             Controls.Add(BT_Buscar);
             Controls.Add(BT_Agregar);
             Controls.Add(TXT_Buscar);
             Controls.Add(DGV_Customer);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "F_AdministrarCliente";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Administrar Cliente";
             ((System.ComponentModel.ISupportInitialize)DGV_Customer).EndInit();
             ResumeLayout(false);

@@ -29,55 +29,57 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            dataGridView1 = new DataGridView();
-            IdInvoice = new DataGridViewTextBoxColumn();
-            Customer = new DataGridViewTextBoxColumn();
+            DGV_ListadoFacturas = new DataGridView();
+            Id = new DataGridViewTextBoxColumn();
+            CustName = new DataGridViewTextBoxColumn();
             SubTotal = new DataGridViewTextBoxColumn();
             TotalItbis = new DataGridViewTextBoxColumn();
             Total = new DataGridViewTextBoxColumn();
             DateTime = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            label2 = new Label();
+            ((System.ComponentModel.ISupportInitialize)DGV_ListadoFacturas).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(248, 48);
+            label1.Location = new Point(223, 21);
             label1.Name = "label1";
             label1.Size = new Size(142, 20);
             label1.TabIndex = 1;
             label1.Text = "Listado de facturas";
             // 
-            // dataGridView1
+            // DGV_ListadoFacturas
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AllowUserToResizeColumns = false;
-            dataGridView1.AllowUserToResizeRows = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { IdInvoice, Customer, SubTotal, TotalItbis, Total, DateTime });
-            dataGridView1.Location = new Point(12, 97);
-            dataGridView1.MultiSelect = false;
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(603, 198);
-            dataGridView1.TabIndex = 2;
+            DGV_ListadoFacturas.AllowUserToAddRows = false;
+            DGV_ListadoFacturas.AllowUserToDeleteRows = false;
+            DGV_ListadoFacturas.AllowUserToResizeColumns = false;
+            DGV_ListadoFacturas.AllowUserToResizeRows = false;
+            DGV_ListadoFacturas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DGV_ListadoFacturas.Columns.AddRange(new DataGridViewColumn[] { Id, CustName, SubTotal, TotalItbis, Total, DateTime });
+            DGV_ListadoFacturas.Location = new Point(12, 58);
+            DGV_ListadoFacturas.MultiSelect = false;
+            DGV_ListadoFacturas.Name = "DGV_ListadoFacturas";
+            DGV_ListadoFacturas.ReadOnly = true;
+            DGV_ListadoFacturas.RowHeadersVisible = false;
+            DGV_ListadoFacturas.RowTemplate.Height = 25;
+            DGV_ListadoFacturas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DGV_ListadoFacturas.Size = new Size(603, 198);
+            DGV_ListadoFacturas.TabIndex = 2;
+            DGV_ListadoFacturas.CellDoubleClick += DGV_ListadoFacturas_CellDoubleClick;
             // 
-            // IdInvoice
+            // Id
             // 
-            IdInvoice.HeaderText = "ID Factura";
-            IdInvoice.Name = "IdInvoice";
-            IdInvoice.ReadOnly = true;
+            Id.HeaderText = "ID Factura";
+            Id.Name = "Id";
+            Id.ReadOnly = true;
             // 
-            // Customer
+            // CustName
             // 
-            Customer.HeaderText = "Cliente";
-            Customer.Name = "Customer";
-            Customer.ReadOnly = true;
+            CustName.HeaderText = "Cliente";
+            CustName.Name = "CustName";
+            CustName.ReadOnly = true;
             // 
             // SubTotal
             // 
@@ -103,16 +105,28 @@
             DateTime.Name = "DateTime";
             DateTime.ReadOnly = true;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(85, 259);
+            label2.Name = "label2";
+            label2.Size = new Size(358, 15);
+            label2.TabIndex = 3;
+            label2.Text = "Para ver el detalle de una factura presionar doble click en la factura";
+            // 
             // F_ListaFacturas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(795, 444);
-            Controls.Add(dataGridView1);
+            ClientSize = new Size(633, 284);
+            Controls.Add(label2);
+            Controls.Add(DGV_ListadoFacturas);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "F_ListaFacturas";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Lista de Facturas";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DGV_ListadoFacturas).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -120,12 +134,13 @@
         #endregion
 
         private Label label1;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn IdInvoice;
-        private DataGridViewTextBoxColumn Customer;
+        private DataGridView DGV_ListadoFacturas;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn CustName;
         private DataGridViewTextBoxColumn SubTotal;
         private DataGridViewTextBoxColumn TotalItbis;
         private DataGridViewTextBoxColumn Total;
         private DataGridViewTextBoxColumn DateTime;
+        private Label label2;
     }
 }

@@ -28,18 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_AgregarClienteFactura));
             DGV_Clientes = new DataGridView();
-            BT_Buscar = new Button();
-            label2 = new Label();
-            TXT_Name = new TextBox();
-            label1 = new Label();
-            BT_Agregar = new Button();
             ID = new DataGridViewTextBoxColumn();
             CustName = new DataGridViewTextBoxColumn();
             Adress = new DataGridViewTextBoxColumn();
             Status = new DataGridViewCheckBoxColumn();
             IsActivo = new DataGridViewCheckBoxColumn();
             CustomerTypeId = new DataGridViewTextBoxColumn();
+            BT_Buscar = new Button();
+            label2 = new Label();
+            TXT_Name = new TextBox();
+            label1 = new Label();
+            BT_Agregar = new Button();
             ((System.ComponentModel.ISupportInitialize)DGV_Clientes).BeginInit();
             SuspendLayout();
             // 
@@ -47,14 +48,13 @@
             // 
             DGV_Clientes.AllowUserToAddRows = false;
             DGV_Clientes.AllowUserToDeleteRows = false;
-            DGV_Clientes.AllowUserToOrderColumns = true;
             DGV_Clientes.AllowUserToResizeColumns = false;
             DGV_Clientes.AllowUserToResizeRows = false;
             DGV_Clientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DGV_Clientes.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             DGV_Clientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGV_Clientes.Columns.AddRange(new DataGridViewColumn[] { ID, CustName, Adress, Status, IsActivo, CustomerTypeId });
-            DGV_Clientes.Location = new Point(37, 75);
+            DGV_Clientes.Location = new Point(27, 75);
             DGV_Clientes.MultiSelect = false;
             DGV_Clientes.Name = "DGV_Clientes";
             DGV_Clientes.ReadOnly = true;
@@ -62,56 +62,8 @@
             DGV_Clientes.RowTemplate.Height = 25;
             DGV_Clientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DGV_Clientes.Size = new Size(537, 150);
-            DGV_Clientes.TabIndex = 12;
+            DGV_Clientes.TabIndex = 4;
             DGV_Clientes.CellClick += DGV_Clientes_CellClick;
-            // 
-            // BT_Buscar
-            // 
-            BT_Buscar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            BT_Buscar.Location = new Point(499, 51);
-            BT_Buscar.Name = "BT_Buscar";
-            BT_Buscar.Size = new Size(75, 23);
-            BT_Buscar.TabIndex = 11;
-            BT_Buscar.Text = "Buscar";
-            BT_Buscar.UseVisualStyleBackColor = true;
-            BT_Buscar.Click += BT_Buscar_Click;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(37, 56);
-            label2.Name = "label2";
-            label2.Size = new Size(54, 15);
-            label2.TabIndex = 10;
-            label2.Text = "Nombre:";
-            // 
-            // TXT_Name
-            // 
-            TXT_Name.Location = new Point(97, 48);
-            TXT_Name.Name = "TXT_Name";
-            TXT_Name.Size = new Size(384, 23);
-            TXT_Name.TabIndex = 9;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(233, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(118, 20);
-            label1.TabIndex = 8;
-            label1.Text = "Agregar Cliente";
-            // 
-            // BT_Agregar
-            // 
-            BT_Agregar.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            BT_Agregar.Location = new Point(233, 229);
-            BT_Agregar.Name = "BT_Agregar";
-            BT_Agregar.Size = new Size(139, 44);
-            BT_Agregar.TabIndex = 7;
-            BT_Agregar.Text = "Agregar";
-            BT_Agregar.UseVisualStyleBackColor = true;
-            BT_Agregar.Click += BT_Agregar_Click;
             // 
             // ID
             // 
@@ -151,18 +103,72 @@
             CustomerTypeId.Name = "CustomerTypeId";
             CustomerTypeId.ReadOnly = true;
             // 
+            // BT_Buscar
+            // 
+            BT_Buscar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            BT_Buscar.Image = (Image)resources.GetObject("BT_Buscar.Image");
+            BT_Buscar.ImageAlign = ContentAlignment.MiddleLeft;
+            BT_Buscar.Location = new Point(477, 49);
+            BT_Buscar.Name = "BT_Buscar";
+            BT_Buscar.Size = new Size(87, 25);
+            BT_Buscar.TabIndex = 2;
+            BT_Buscar.Text = "Buscar";
+            BT_Buscar.UseVisualStyleBackColor = true;
+            BT_Buscar.Click += BT_Buscar_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(27, 56);
+            label2.Name = "label2";
+            label2.Size = new Size(54, 15);
+            label2.TabIndex = 10;
+            label2.Text = "Nombre:";
+            // 
+            // TXT_Name
+            // 
+            TXT_Name.Location = new Point(87, 49);
+            TXT_Name.Name = "TXT_Name";
+            TXT_Name.Size = new Size(384, 23);
+            TXT_Name.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(223, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(118, 20);
+            label1.TabIndex = 8;
+            label1.Text = "Agregar Cliente";
+            // 
+            // BT_Agregar
+            // 
+            BT_Agregar.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            BT_Agregar.Image = (Image)resources.GetObject("BT_Agregar.Image");
+            BT_Agregar.ImageAlign = ContentAlignment.MiddleLeft;
+            BT_Agregar.Location = new Point(223, 229);
+            BT_Agregar.Name = "BT_Agregar";
+            BT_Agregar.Size = new Size(139, 44);
+            BT_Agregar.TabIndex = 3;
+            BT_Agregar.Text = "Agregar";
+            BT_Agregar.UseVisualStyleBackColor = true;
+            BT_Agregar.Click += BT_Agregar_Click;
+            // 
             // F_AgregarClienteFactura
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(612, 290);
+            ClientSize = new Size(584, 279);
             Controls.Add(DGV_Clientes);
             Controls.Add(BT_Buscar);
             Controls.Add(label2);
             Controls.Add(TXT_Name);
             Controls.Add(label1);
             Controls.Add(BT_Agregar);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "F_AgregarClienteFactura";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Agregar Cliente a Factura";
             ((System.ComponentModel.ISupportInitialize)DGV_Clientes).EndInit();
             ResumeLayout(false);

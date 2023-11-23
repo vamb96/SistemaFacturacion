@@ -47,14 +47,16 @@ namespace SistemaFacturacion
                     customer.CustomerTypeId = 2;
                 }
                 _customer.Add(customer);
-                MessageBox.Show($"Cliente:{customer.CustName} ha sido añadido con exito");
+
+                MessageBox.Show($"Cliente: \"{customer.CustName}\" ha sido añadido con exito");
+                this.Close();
             }
             catch (Exception)
             {
 
                 MessageBox.Show("Ha ocurrido un error al agregar el cliente");
             }
-            
+
         }
     }
 }

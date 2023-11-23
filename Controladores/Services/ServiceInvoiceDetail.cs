@@ -54,7 +54,7 @@ namespace Controladores.Services
                 invoiceDetail1.ProductId = invoiceDetail.ProductId;
                 invoiceDetail1.Qty = invoiceDetail.Qty;
                 invoiceDetail1.Price = invoiceDetail.Price;
-                invoiceDetail1.Itbis = invoiceDetail.Itbis;
+                invoiceDetail1.TotalItbis = invoiceDetail.TotalItbis;
                 invoiceDetail1.SubTotal = invoiceDetail.SubTotal;
                 invoiceDetail1.Total = invoiceDetail.Total;
 

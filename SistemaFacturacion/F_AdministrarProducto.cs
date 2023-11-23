@@ -15,7 +15,7 @@ namespace SistemaFacturacion
 {
     public partial class F_AdministrarProducto : Form
     {
-        IServiceProduct serviceProduct = new ServiceProduct("Data Source = VICTOR\\MSSQLSERVER01; Initial Catalog = SistemaFacturacion; Integrated Security = True; Trust Server Certificate=True;");
+        IServiceProduct serviceProduct = new ServiceProduct("Data Source = VAMB; Initial Catalog = SistemaFacturacion; Integrated Security = True; Trust Server Certificate=True;");
         public F_AdministrarProducto()
         {
             InitializeComponent();

@@ -20,6 +20,9 @@ namespace Datos.Interfaces
         public List<Customer> GetCustomerAll();
         public List<Product> GetProductAll();
         public Product GetProductId(int id);
-        public bool DeleteDetail(int id);
+        public bool DeleteDetail(int id,Invoice invoice);
+        public InvoiceDetail FindDetail(int id, Invoice invoice);
+        public List<InvoiceDetail> GetInvoiceDetails(int id);
+
     }
 }

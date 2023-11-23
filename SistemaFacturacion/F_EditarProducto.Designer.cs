@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_EditarProducto));
             BT_Editar = new Button();
             TXT_Descripcion = new TextBox();
             label6 = new Label();
@@ -39,10 +40,12 @@
             // BT_Editar
             // 
             BT_Editar.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            BT_Editar.Image = (Image)resources.GetObject("BT_Editar.Image");
+            BT_Editar.ImageAlign = ContentAlignment.MiddleLeft;
             BT_Editar.Location = new Point(135, 162);
             BT_Editar.Name = "BT_Editar";
             BT_Editar.Size = new Size(118, 39);
-            BT_Editar.TabIndex = 35;
+            BT_Editar.TabIndex = 3;
             BT_Editar.Text = "Editar";
             BT_Editar.UseVisualStyleBackColor = true;
             BT_Editar.Click += BT_Editar_Click;
@@ -52,7 +55,7 @@
             TXT_Descripcion.Location = new Point(98, 71);
             TXT_Descripcion.Name = "TXT_Descripcion";
             TXT_Descripcion.Size = new Size(265, 23);
-            TXT_Descripcion.TabIndex = 31;
+            TXT_Descripcion.TabIndex = 1;
             // 
             // label6
             // 
@@ -88,7 +91,7 @@
             CHK_Activo.Location = new Point(99, 123);
             CHK_Activo.Name = "CHK_Activo";
             CHK_Activo.Size = new Size(15, 14);
-            CHK_Activo.TabIndex = 36;
+            CHK_Activo.TabIndex = 2;
             CHK_Activo.UseVisualStyleBackColor = true;
             // 
             // F_EditarProducto
@@ -102,7 +105,9 @@
             Controls.Add(label6);
             Controls.Add(label2);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "F_EditarProducto";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Editar Producto";
             ResumeLayout(false);
             PerformLayout();

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_AgregarProducto));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -40,7 +41,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(164, 9);
+            label1.Location = new Point(152, 9);
             label1.Name = "label1";
             label1.Size = new Size(134, 20);
             label1.TabIndex = 0;
@@ -49,7 +50,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(40, 60);
+            label2.Location = new Point(28, 60);
             label2.Name = "label2";
             label2.Size = new Size(72, 15);
             label2.TabIndex = 1;
@@ -58,7 +59,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(71, 96);
+            label3.Location = new Point(59, 96);
             label3.Name = "label3";
             label3.Size = new Size(41, 15);
             label3.TabIndex = 2;
@@ -67,7 +68,9 @@
             // BT_Agregar
             // 
             BT_Agregar.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            BT_Agregar.Location = new Point(164, 136);
+            BT_Agregar.Image = (Image)resources.GetObject("BT_Agregar.Image");
+            BT_Agregar.ImageAlign = ContentAlignment.MiddleLeft;
+            BT_Agregar.Location = new Point(151, 127);
             BT_Agregar.Name = "BT_Agregar";
             BT_Agregar.Size = new Size(134, 38);
             BT_Agregar.TabIndex = 3;
@@ -77,32 +80,34 @@
             // 
             // TXT_Description
             // 
-            TXT_Description.Location = new Point(118, 57);
+            TXT_Description.Location = new Point(106, 57);
             TXT_Description.Name = "TXT_Description";
-            TXT_Description.Size = new Size(333, 23);
-            TXT_Description.TabIndex = 4;
+            TXT_Description.Size = new Size(280, 23);
+            TXT_Description.TabIndex = 1;
             // 
             // CKB_IsActivo
             // 
             CKB_IsActivo.AutoSize = true;
-            CKB_IsActivo.Location = new Point(118, 96);
+            CKB_IsActivo.Location = new Point(106, 96);
             CKB_IsActivo.Name = "CKB_IsActivo";
             CKB_IsActivo.Size = new Size(15, 14);
-            CKB_IsActivo.TabIndex = 5;
+            CKB_IsActivo.TabIndex = 2;
             CKB_IsActivo.UseVisualStyleBackColor = true;
             // 
-            // F_AdministrarProducto
+            // F_AgregarProducto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(494, 207);
+            ClientSize = new Size(412, 179);
             Controls.Add(CKB_IsActivo);
             Controls.Add(TXT_Description);
             Controls.Add(BT_Agregar);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "F_AdministrarProducto";
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Name = "F_AgregarProducto";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Administrar Producto";
             ResumeLayout(false);
             PerformLayout();

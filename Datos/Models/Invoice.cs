@@ -15,6 +15,6 @@ namespace Datos.Models
         public decimal Total {  get; set; }
         public DateTime dateTime { get; set; }
         public List<InvoiceDetail> ListDetails { get; set; }
-        public Customer Customer { get; set; }
+        public Customer? Customer { get; set; }
     }
 }

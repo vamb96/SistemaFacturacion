@@ -17,7 +17,7 @@ namespace SistemaFacturacion
         private IServiceProduct _serviceProducto;
         private Product Product;
         int _idProduct;
-        public F_EditarProducto(int idProduct,IServiceProduct serviceProduct)
+        public F_EditarProducto(int idProduct, IServiceProduct serviceProduct)
         {
             InitializeComponent();
             _serviceProducto = serviceProduct;
@@ -40,6 +40,7 @@ namespace SistemaFacturacion
                 _serviceProducto.Update(product, _idProduct);
 
                 MessageBox.Show("El producto ha sido actualizado con exito");
+                this.Close();
 
             }
             catch (Exception)

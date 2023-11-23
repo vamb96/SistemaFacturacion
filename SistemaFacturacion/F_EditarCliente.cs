@@ -3,6 +3,7 @@ using Datos.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -50,17 +51,16 @@ namespace SistemaFacturacion
                 }
 
                 _serviceCustomer.Update(customer, _idCustomer);
-
                 MessageBox.Show("El cliente ha sido actualizado con exito.");
-
+                this.Close();
             }
             catch (Exception)
             {
 
                 MessageBox.Show("Ha ocurrido un error al actualizar el cliente.");
-                
+
             }
-            
+
         }
     }
 }

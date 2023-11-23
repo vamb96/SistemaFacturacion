@@ -25,9 +25,20 @@ namespace SistemaFacturacion
         private void BT_Agregar_Click(object sender, EventArgs e)
         {
             Product product = new Product();
-            product.Description = TXT_Description.Text;
-            product.IsActivo = CKB_IsActivo.Checked;
-            _serviceProduct.Add(product);
+            try
+            {
+                product.Description = TXT_Description.Text;
+                product.IsActivo = CKB_IsActivo.Checked;
+                _serviceProduct.Add(product);
+                MessageBox.Show("El producto ha sido añadido con exito");
+                this.Close();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ha ocurrido un problema al agregar el producto");
+            }
+            
         }
     }
 }

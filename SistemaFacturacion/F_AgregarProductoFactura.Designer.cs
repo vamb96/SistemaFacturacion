@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_AgregarProductoFactura));
             BT_Agregar = new Button();
             label1 = new Label();
             TXT_Nombre = new TextBox();
@@ -47,10 +48,12 @@
             // BT_Agregar
             // 
             BT_Agregar.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            BT_Agregar.Location = new Point(184, 248);
+            BT_Agregar.Image = (Image)resources.GetObject("BT_Agregar.Image");
+            BT_Agregar.ImageAlign = ContentAlignment.MiddleLeft;
+            BT_Agregar.Location = new Point(144, 248);
             BT_Agregar.Name = "BT_Agregar";
-            BT_Agregar.Size = new Size(139, 44);
-            BT_Agregar.TabIndex = 0;
+            BT_Agregar.Size = new Size(128, 44);
+            BT_Agregar.TabIndex = 5;
             BT_Agregar.Text = "Agregar";
             BT_Agregar.UseVisualStyleBackColor = true;
             BT_Agregar.Click += BT_Agregar_Click;
@@ -59,7 +62,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(178, 7);
+            label1.Location = new Point(138, 7);
             label1.Name = "label1";
             label1.Size = new Size(134, 20);
             label1.TabIndex = 1;
@@ -67,15 +70,15 @@
             // 
             // TXT_Nombre
             // 
-            TXT_Nombre.Location = new Point(160, 41);
+            TXT_Nombre.Location = new Point(120, 46);
             TXT_Nombre.Name = "TXT_Nombre";
             TXT_Nombre.Size = new Size(151, 23);
-            TXT_Nombre.TabIndex = 3;
+            TXT_Nombre.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(100, 44);
+            label2.Location = new Point(60, 49);
             label2.Name = "label2";
             label2.Size = new Size(54, 15);
             label2.TabIndex = 4;
@@ -84,21 +87,26 @@
             // BT_Buscar
             // 
             BT_Buscar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            BT_Buscar.Location = new Point(317, 41);
+            BT_Buscar.Image = (Image)resources.GetObject("BT_Buscar.Image");
+            BT_Buscar.ImageAlign = ContentAlignment.MiddleLeft;
+            BT_Buscar.Location = new Point(267, 45);
             BT_Buscar.Name = "BT_Buscar";
-            BT_Buscar.Size = new Size(75, 23);
-            BT_Buscar.TabIndex = 5;
+            BT_Buscar.Size = new Size(86, 28);
+            BT_Buscar.TabIndex = 2;
             BT_Buscar.Text = "Buscar";
             BT_Buscar.UseVisualStyleBackColor = true;
             BT_Buscar.Click += BT_Buscar_Click;
             // 
             // DGV_Productos
             // 
+            DGV_Productos.AllowUserToAddRows = false;
+            DGV_Productos.AllowUserToDeleteRows = false;
+            DGV_Productos.AllowUserToResizeColumns = false;
             DGV_Productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DGV_Productos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             DGV_Productos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGV_Productos.Columns.AddRange(new DataGridViewColumn[] { ID, Descripcion });
-            DGV_Productos.Location = new Point(100, 75);
+            DGV_Productos.Location = new Point(60, 80);
             DGV_Productos.MultiSelect = false;
             DGV_Productos.Name = "DGV_Productos";
             DGV_Productos.ReadOnly = true;
@@ -123,7 +131,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(271, 203);
+            label3.Location = new Point(231, 208);
             label3.Name = "label3";
             label3.Size = new Size(58, 15);
             label3.TabIndex = 7;
@@ -132,7 +140,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(100, 203);
+            label4.Location = new Point(60, 208);
             label4.Name = "label4";
             label4.Size = new Size(43, 15);
             label4.TabIndex = 8;
@@ -140,24 +148,24 @@
             // 
             // TXT_Precio
             // 
-            TXT_Precio.Location = new Point(149, 199);
+            TXT_Precio.Location = new Point(109, 204);
             TXT_Precio.Name = "TXT_Precio";
             TXT_Precio.Size = new Size(100, 23);
-            TXT_Precio.TabIndex = 9;
+            TXT_Precio.TabIndex = 3;
             TXT_Precio.KeyPress += TXT_Precio_KeyPress;
             // 
             // NUD_Cantidad
             // 
-            NUD_Cantidad.Location = new Point(330, 200);
+            NUD_Cantidad.Location = new Point(290, 205);
             NUD_Cantidad.Name = "NUD_Cantidad";
             NUD_Cantidad.Size = new Size(62, 23);
-            NUD_Cantidad.TabIndex = 10;
+            NUD_Cantidad.TabIndex = 4;
             // 
             // F_AgregarProductoFactura
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(488, 316);
+            ClientSize = new Size(409, 308);
             Controls.Add(NUD_Cantidad);
             Controls.Add(TXT_Precio);
             Controls.Add(label4);
@@ -168,7 +176,9 @@
             Controls.Add(TXT_Nombre);
             Controls.Add(label1);
             Controls.Add(BT_Agregar);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "F_AgregarProductoFactura";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Agregar Producto a Factura";
             ((System.ComponentModel.ISupportInitialize)DGV_Productos).EndInit();
             ((System.ComponentModel.ISupportInitialize)NUD_Cantidad).EndInit();

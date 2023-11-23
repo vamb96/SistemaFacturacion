@@ -91,16 +91,27 @@ namespace Controladores.Services
             return _context.Productos.FirstOrDefault(x => x.Id == id);
         }
 
-        public bool DeleteDetail(int idDetail)
+        public bool DeleteDetail(int idDetail, Invoice invoice)
         {
-            InvoiceDetail invoiceDetail = _context.InvoicesDetail.FirstOrDefault(x => x.id == idDetail);
-            if (invoiceDetail != null)
+            InvoiceDetail detail = invoice.ListDetails.FirstOrDefault(x => x.id == idDetail);
+
+            if (detail != null)
             {
-                _context.InvoicesDetail.Remove(invoiceDetail);
-                _context.SaveChanges();
+                invoice.ListDetails.Remove(detail);
                 return true;
             }
             return false;
+        }
+
+        public InvoiceDetail FindDetail(int id,Invoice invoice)
+        {
+            return invoice.ListDetails.FirstOrDefault(x => x.id == id);
+        }
+
+        public List<InvoiceDetail> GetInvoiceDetails(int id)
+        {                
+            List<InvoiceDetail> listDetails = _context.InvoicesDetail.Where(x => x.InvoiceId == id).ToList();
+            return listDetails;
         }
     }
 }

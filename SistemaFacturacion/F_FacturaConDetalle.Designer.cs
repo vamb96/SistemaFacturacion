@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            LBL_IdInvoice = new Label();
             groupBox2 = new GroupBox();
             TXT_TotalFactura = new TextBox();
             TXT_SubTotalFactura = new TextBox();
@@ -43,12 +42,12 @@
             Price = new DataGridViewTextBoxColumn();
             Itebis = new DataGridViewTextBoxColumn();
             SubTotalDetalle = new DataGridViewTextBoxColumn();
-            TotalDetalle = new DataGridViewTextBoxColumn();
-            EditarProducto = new DataGridViewButtonColumn();
-            EliminarProducto = new DataGridViewButtonColumn();
+            Total = new DataGridViewTextBoxColumn();
             LBL_Fecha = new Label();
             LBL_IdCliente = new Label();
             LBL_Nombre = new Label();
+            label1 = new Label();
+            LBL_IdInvoice = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_DetalleFactura).BeginInit();
@@ -56,28 +55,17 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(LBL_IdInvoice);
             groupBox1.Controls.Add(groupBox2);
             groupBox1.Controls.Add(DGV_DetalleFactura);
             groupBox1.Controls.Add(LBL_Fecha);
             groupBox1.Controls.Add(LBL_IdCliente);
             groupBox1.Controls.Add(LBL_Nombre);
             groupBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox1.Location = new Point(12, 23);
+            groupBox1.Location = new Point(12, 28);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(817, 283);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
-            // 
-            // LBL_IdInvoice
-            // 
-            LBL_IdInvoice.AutoSize = true;
-            LBL_IdInvoice.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            LBL_IdInvoice.Location = new Point(6, 0);
-            LBL_IdInvoice.Name = "LBL_IdInvoice";
-            LBL_IdInvoice.Size = new Size(83, 20);
-            LBL_IdInvoice.TabIndex = 9;
-            LBL_IdInvoice.Text = "ID_Factura";
             // 
             // groupBox2
             // 
@@ -88,7 +76,7 @@
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(label4);
             groupBox2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox2.Location = new Point(615, 109);
+            groupBox2.Location = new Point(615, 144);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(186, 128);
             groupBox2.TabIndex = 8;
@@ -151,8 +139,12 @@
             // 
             // DGV_DetalleFactura
             // 
+            DGV_DetalleFactura.AllowUserToAddRows = false;
+            DGV_DetalleFactura.AllowUserToDeleteRows = false;
+            DGV_DetalleFactura.AllowUserToResizeColumns = false;
+            DGV_DetalleFactura.AllowUserToResizeRows = false;
             DGV_DetalleFactura.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGV_DetalleFactura.Columns.AddRange(new DataGridViewColumn[] { IdProduc, Qty, Price, Itebis, SubTotalDetalle, TotalDetalle, EditarProducto, EliminarProducto });
+            DGV_DetalleFactura.Columns.AddRange(new DataGridViewColumn[] { IdProduc, Qty, Price, Itebis, SubTotalDetalle, Total });
             DGV_DetalleFactura.Location = new Point(6, 76);
             DGV_DetalleFactura.MultiSelect = false;
             DGV_DetalleFactura.Name = "DGV_DetalleFactura";
@@ -197,31 +189,17 @@
             SubTotalDetalle.Name = "SubTotalDetalle";
             SubTotalDetalle.ReadOnly = true;
             // 
-            // TotalDetalle
+            // Total
             // 
-            TotalDetalle.Frozen = true;
-            TotalDetalle.HeaderText = "Total";
-            TotalDetalle.Name = "TotalDetalle";
-            TotalDetalle.ReadOnly = true;
-            // 
-            // EditarProducto
-            // 
-            EditarProducto.Frozen = true;
-            EditarProducto.HeaderText = "Editar";
-            EditarProducto.Name = "EditarProducto";
-            EditarProducto.ReadOnly = true;
-            // 
-            // EliminarProducto
-            // 
-            EliminarProducto.Frozen = true;
-            EliminarProducto.HeaderText = "Eliminar";
-            EliminarProducto.Name = "EliminarProducto";
-            EliminarProducto.ReadOnly = true;
+            Total.Frozen = true;
+            Total.HeaderText = "Total";
+            Total.Name = "Total";
+            Total.ReadOnly = true;
             // 
             // LBL_Fecha
             // 
             LBL_Fecha.AutoSize = true;
-            LBL_Fecha.Location = new Point(654, 31);
+            LBL_Fecha.Location = new Point(654, 17);
             LBL_Fecha.Name = "LBL_Fecha";
             LBL_Fecha.Size = new Size(43, 17);
             LBL_Fecha.TabIndex = 2;
@@ -232,26 +210,50 @@
             LBL_IdCliente.AutoSize = true;
             LBL_IdCliente.Location = new Point(19, 35);
             LBL_IdCliente.Name = "LBL_IdCliente";
-            LBL_IdCliente.Size = new Size(69, 17);
+            LBL_IdCliente.Size = new Size(22, 17);
             LBL_IdCliente.TabIndex = 1;
-            LBL_IdCliente.Text = "ID Cliente";
+            LBL_IdCliente.Text = "ID";
             // 
             // LBL_Nombre
             // 
             LBL_Nombre.AutoSize = true;
-            LBL_Nombre.Location = new Point(103, 35);
+            LBL_Nombre.Location = new Point(54, 35);
             LBL_Nombre.Name = "LBL_Nombre";
             LBL_Nombre.Size = new Size(58, 17);
             LBL_Nombre.TabIndex = 0;
             LBL_Nombre.Text = "Nombre";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(19, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(34, 20);
+            label1.TabIndex = 10;
+            label1.Text = "No.";
+            // 
+            // LBL_IdInvoice
+            // 
+            LBL_IdInvoice.AutoSize = true;
+            LBL_IdInvoice.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            LBL_IdInvoice.Location = new Point(51, 9);
+            LBL_IdInvoice.Name = "LBL_IdInvoice";
+            LBL_IdInvoice.Size = new Size(83, 20);
+            LBL_IdInvoice.TabIndex = 9;
+            LBL_IdInvoice.Text = "ID_Factura";
             // 
             // F_FacturaConDetalle
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(848, 321);
+            Controls.Add(label1);
             Controls.Add(groupBox1);
+            Controls.Add(LBL_IdInvoice);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "F_FacturaConDetalle";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = " Factura Con Detalle";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -259,6 +261,7 @@
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_DetalleFactura).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -268,14 +271,6 @@
         private Label LBL_IdCliente;
         private Label LBL_Nombre;
         private DataGridView DGV_DetalleFactura;
-        private DataGridViewTextBoxColumn IdProduc;
-        private DataGridViewTextBoxColumn Qty;
-        private DataGridViewTextBoxColumn Price;
-        private DataGridViewTextBoxColumn Itebis;
-        private DataGridViewTextBoxColumn SubTotalDetalle;
-        private DataGridViewTextBoxColumn TotalDetalle;
-        private DataGridViewButtonColumn EditarProducto;
-        private DataGridViewButtonColumn EliminarProducto;
         private Label LBL_IdInvoice;
         private GroupBox groupBox2;
         private TextBox TXT_TotalFactura;
@@ -284,5 +279,12 @@
         private Label label6;
         private Label label5;
         private Label label4;
+        private DataGridViewTextBoxColumn IdProduc;
+        private DataGridViewTextBoxColumn Qty;
+        private DataGridViewTextBoxColumn Price;
+        private DataGridViewTextBoxColumn Itebis;
+        private DataGridViewTextBoxColumn SubTotalDetalle;
+        private DataGridViewTextBoxColumn Total;
+        private Label label1;
     }
 }

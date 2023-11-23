@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_EditarProductoFactura));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -35,17 +36,17 @@
             TXT_Descripcion = new TextBox();
             TXT_Precio = new TextBox();
             NUD_Cantidad = new NumericUpDown();
-            button1 = new Button();
+            BT_Modificar = new Button();
             ((System.ComponentModel.ISupportInitialize)NUD_Cantidad).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(141, 16);
+            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(135, 19);
             label1.Name = "label1";
-            label1.Size = new Size(127, 17);
+            label1.Size = new Size(144, 20);
             label1.TabIndex = 0;
             label1.Text = "Modificar producto";
             // 
@@ -80,6 +81,7 @@
             // 
             TXT_Descripcion.Location = new Point(109, 69);
             TXT_Descripcion.Name = "TXT_Descripcion";
+            TXT_Descripcion.ReadOnly = true;
             TXT_Descripcion.Size = new Size(218, 23);
             TXT_Descripcion.TabIndex = 4;
             // 
@@ -88,7 +90,7 @@
             TXT_Precio.Location = new Point(109, 149);
             TXT_Precio.Name = "TXT_Precio";
             TXT_Precio.Size = new Size(100, 23);
-            TXT_Precio.TabIndex = 5;
+            TXT_Precio.TabIndex = 2;
             TXT_Precio.KeyPress += TXT_Precio_KeyPress;
             // 
             // NUD_Cantidad
@@ -96,24 +98,27 @@
             NUD_Cantidad.Location = new Point(109, 109);
             NUD_Cantidad.Name = "NUD_Cantidad";
             NUD_Cantidad.Size = new Size(100, 23);
-            NUD_Cantidad.TabIndex = 6;
+            NUD_Cantidad.TabIndex = 1;
             // 
-            // button1
+            // BT_Modificar
             // 
-            button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(141, 200);
-            button1.Name = "button1";
-            button1.Size = new Size(121, 51);
-            button1.TabIndex = 7;
-            button1.Text = "Modificar";
-            button1.UseVisualStyleBackColor = true;
+            BT_Modificar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            BT_Modificar.Image = (Image)resources.GetObject("BT_Modificar.Image");
+            BT_Modificar.ImageAlign = ContentAlignment.MiddleLeft;
+            BT_Modificar.Location = new Point(132, 200);
+            BT_Modificar.Name = "BT_Modificar";
+            BT_Modificar.Size = new Size(138, 40);
+            BT_Modificar.TabIndex = 3;
+            BT_Modificar.Text = "Modificar";
+            BT_Modificar.UseVisualStyleBackColor = true;
+            BT_Modificar.Click += BT_Modificar_Click;
             // 
             // F_EditarProductoFactura
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(350, 261);
-            Controls.Add(button1);
+            Controls.Add(BT_Modificar);
             Controls.Add(NUD_Cantidad);
             Controls.Add(TXT_Precio);
             Controls.Add(TXT_Descripcion);
@@ -121,9 +126,10 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "F_EditarProductoFactura";
-            Text = "Editar Productos Factura";
-            Load += F_EditarProductoFactura_Load;
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Modificar Productos en la Factura";
             ((System.ComponentModel.ISupportInitialize)NUD_Cantidad).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -138,6 +144,6 @@
         private TextBox TXT_Descripcion;
         private TextBox TXT_Precio;
         private NumericUpDown NUD_Cantidad;
-        private Button button1;
+        private Button BT_Modificar;
     }
 }

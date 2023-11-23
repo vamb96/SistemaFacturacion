@@ -39,10 +39,19 @@ namespace SistemaFacturacion
             if (list.Count > 0)
             {
                 DGV_Productos.Rows.Clear();
-                foreach (Product item in list)
+                try
                 {
-                    DGV_Productos.Rows.Add(item.Id, item.Description);
+                    foreach (Product item in list)
+                    {
+                        DGV_Productos.Rows.Add(item.Id, item.Description);
+                    }
                 }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Ha ocurrido un error al buscar el producto");
+                }
+
             }
             else
             {
@@ -57,21 +66,20 @@ namespace SistemaFacturacion
             {
                 DataGridViewRow filaSeleccionada = DGV_Productos.SelectedRows[0];
                 int idProducto = (int)filaSeleccionada.Cells[0].Value;
-                bool agregar;
 
                 Product producto = _service.GetProductId(idProducto);
 
                 if (!_invoice.ListDetails.Any(detail => detail.ProductId == idProducto))
                 {
-                    
+
                     try
                     {
                         _invoiceDetail.ProductId = idProducto;
                         _invoiceDetail.Qty = (int)NUD_Cantidad.Value;
                         _invoiceDetail.Price = Convert.ToInt32(TXT_Precio.Text);
                         _invoiceDetail.SubTotal = _invoiceDetail.Qty * _invoiceDetail.Price;
-                        _invoiceDetail.Itbis = _invoiceDetail.SubTotal * 0.18M;
-                        _invoiceDetail.Total = _invoiceDetail.SubTotal + _invoiceDetail.Itbis;
+                        _invoiceDetail.TotalItbis = _invoiceDetail.SubTotal * 0.18M;
+                        _invoiceDetail.Total = _invoiceDetail.SubTotal + _invoiceDetail.TotalItbis;
                         _invoiceDetail.producto = producto;
                         _invoiceDetail.invoice = _invoice;
 
@@ -85,51 +93,33 @@ namespace SistemaFacturacion
 
                         MessageBox.Show("Ha ocurrido un error intentelo nuevamente.");
                     }
-                    
-                    
                 }
                 else
                 {
-                    foreach (InvoiceDetail detail in _invoice.ListDetails)
+                    try
                     {
-                        if (detail.ProductId == producto.Id)
+                        foreach (InvoiceDetail detail in _invoice.ListDetails)
                         {
-                            detail.Qty += Convert.ToInt32(NUD_Cantidad.Value);
-                            detail.Price = Convert.ToInt32(TXT_Precio.Text);
-                            detail.SubTotal = detail.Qty * detail.Price;
-                            detail.Itbis = detail.SubTotal * 0.18M;
-                            detail.Total = detail.SubTotal + detail.Itbis;
-                            this.Close();
-                            _action();
-                            agregar = false;
+                            if (detail.ProductId == producto.Id)
+                            {
+                                detail.Qty += Convert.ToInt32(NUD_Cantidad.Value);
+                                detail.Price = Convert.ToInt32(TXT_Precio.Text);
+                                detail.SubTotal = detail.Qty * detail.Price;
+                                detail.TotalItbis = detail.SubTotal * 0.18M;
+                                detail.Total = detail.SubTotal + detail.TotalItbis;
+                                this.Close();
+                                _action();
+                            }
+
                         }
-
                     }
-                }
-
-                //decimal numeroEntero = Convert.ToDecimal(TXT_Precio.Text);
-
-                /*if (_invoice.ListDetails.Count >= 0)
-                {
-
-                    foreach (InvoiceDetail detail in _invoice.ListDetails)
+                    catch (Exception)
                     {
-                        if (detail.ProductId == producto.Id)
-                        {
-                            detail.Qty += Convert.ToInt32(NUD_Cantidad.Value);
-                            detail.Price = Convert.ToInt32(TXT_Precio.Text);
-                            this.Close();
-                            _action();
-                            agregar = false;
-                        }
-                        
+
+                        MessageBox.Show("Ha ocurrido un error al agregar el producto");
                     }
+
                 }
-                else
-                {
-
-                }*/
-
             }
         }
 
@@ -155,7 +145,7 @@ namespace SistemaFacturacion
             else if (char.IsDigit(e.KeyChar))
             {
                 int value;
-                if (!int.TryParse(TXT_Precio.Text + e.KeyChar, out value) || value <=0)
+                if (!int.TryParse(TXT_Precio.Text + e.KeyChar, out value) || value <= 0)
                 {
                     e.Handled = true;
                 }
