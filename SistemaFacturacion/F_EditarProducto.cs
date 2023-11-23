@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,35 +22,69 @@ namespace SistemaFacturacion
         {
             InitializeComponent();
             _serviceProducto = serviceProduct;
-            Product = _serviceProducto.Get(idProduct);
+            Product = _serviceProducto.GetProductById(idProduct);
             _idProduct = idProduct;
 
             TXT_Descripcion.Text = Product.Description;
             CHK_Activo.Checked = Product.IsActivo;
+            TXT_Precio.Text =  Product.Price.ToString();
 
         }
 
         private void BT_Editar_Click(object sender, EventArgs e)
         {
-            try
+
+            if (Validaciones())
             {
-                Product product = new Product();
-                product.Description = TXT_Descripcion.Text;
-                product.IsActivo = CHK_Activo.Checked;
+                try
+                {
+                    Product product = new Product();
+                    product.Description = TXT_Descripcion.Text;
+                    product.IsActivo = CHK_Activo.Checked;
+                    product.Price = decimal.Parse(TXT_Precio.Text);
 
-                _serviceProducto.Update(product, _idProduct);
+                    _serviceProducto.Update(product, _idProduct);
 
-                MessageBox.Show("El producto ha sido actualizado con exito");
-                this.Close();
+                    MessageBox.Show("El producto ha sido actualizado con exito");
+                    this.Close();
+                }
+                catch (Exception)
+                {
+
+                    throw;//MessageBox.Show("Ha ocurrido un error al actualizar el producto.");
+                }
 
             }
-            catch (Exception)
+
+        }
+
+        private bool Validaciones()
+        {
+            if (string.IsNullOrEmpty(TXT_Descripcion.Text))
             {
-
-                MessageBox.Show("Ha ocurrido un error al actualizar el producto.");
-
+                return false;
             }
+            if (string.IsNullOrEmpty(TXT_Precio.Text))
+            {
+                return false;
+            }
+            return true;
+        }
 
+        private void TXT_Precio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else if (char.IsDigit(e.KeyChar))
+            {
+                int value;
+                if (!int.TryParse(TXT_Precio.Text + e.KeyChar, out value) || value <= 0)
+                {
+                    e.Handled = true;
+                }
+            }
         }
     }
 }

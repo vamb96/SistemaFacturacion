@@ -71,5 +71,15 @@ namespace Controladores.Services
             List<Customer> listCustomer = _context.Customers.Where(p => p.CustName.Contains(name)).ToList();
             return listCustomer;
         }
+
+        public List<CustomerTypes> GetCustomerTypes()
+        {
+            return _context.CustomerTypes.ToList();
+        }
+
+        public CustomerTypes GetCustomerType(int id)
+        {
+            return _context.CustomerTypes.Find(id);
+        }
     }
 }

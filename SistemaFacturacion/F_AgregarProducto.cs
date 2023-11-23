@@ -25,20 +25,52 @@ namespace SistemaFacturacion
         private void BT_Agregar_Click(object sender, EventArgs e)
         {
             Product product = new Product();
-            try
-            {
-                product.Description = TXT_Description.Text;
-                product.IsActivo = CKB_IsActivo.Checked;
-                _serviceProduct.Add(product);
-                MessageBox.Show("El producto ha sido añadido con exito");
-                this.Close();
-            }
-            catch (Exception)
-            {
 
-                MessageBox.Show("Ha ocurrido un problema al agregar el producto");
+            if (Validaciones())
+            {
+                try
+                {
+                    product.Description = TXT_Description.Text;
+                    product.IsActivo = CKB_IsActivo.Checked;
+                    product.Price = int.Parse(TXT_Price.Text);
+                    _serviceProduct.Add(product);
+
+                    MessageBox.Show("El producto ha sido añadido con exito");
+                    this.Close();
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Ha ocurrido un problema al agregar el producto");
+                }
             }
-            
+
+        }
+
+
+        private bool Validaciones()
+        {
+            if (string.IsNullOrEmpty(TXT_Description.Text))
+            {
+                MessageBox.Show("Introduzca el nombre del producto");
+                return false;
+            }
+
+
+            if (_serviceProduct.GetProductByDescription(TXT_Description.Text) != null)
+            {
+                MessageBox.Show("Existe un producto con este nombre");
+                return false;
+            }
+            if (string.IsNullOrEmpty(TXT_Price.Text))
+            {
+                MessageBox.Show("Introduzca un valor en el precio.");
+                return false;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

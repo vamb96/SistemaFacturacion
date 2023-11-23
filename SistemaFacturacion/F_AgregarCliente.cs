@@ -19,44 +19,81 @@ namespace SistemaFacturacion
         {
             InitializeComponent();
             _customer = service;
+            CB_CustomerType.Items.Clear();
+
+            foreach (CustomerTypes item in _customer.GetCustomerTypes())
+            {
+                CB_CustomerType.Items.Add(item);
+            }
+            CB_CustomerType.DisplayMember = "Description";
+            
         }
 
         private void BT_Agregar_Click(object sender, EventArgs e)
         {
             try
             {
-                Customer customer = new Customer();
-                customer.CustName = TXT_CustName.Text;
-                customer.Adress = TXT_Adress.Text;
-                if (CB_Status.SelectedItem == "Activo")
-                {
-                    customer.Status = true;
-                }
-                else
-                {
-                    customer.Status = false;
 
-                }
-                customer.IsActivo = CKB_IsActivo.Checked;
-                if (CB_CustomerType.SelectedItem == "Contado")
+                if (Validaciones())
                 {
-                    customer.CustomerTypeId = 1;
-                }
-                else
-                {
-                    customer.CustomerTypeId = 2;
-                }
-                _customer.Add(customer);
+                    Customer customer = new Customer();
+                    customer.CustName = TXT_CustName.Text;
+                    customer.Adress = TXT_Adress.Text;
+                    CustomerTypes type = (CustomerTypes)CB_CustomerType.SelectedItem;
+                    customer.CustomerType = type;
+                    customer.CustomerTypeId = type.Id;
+                    if (CB_Status.SelectedItem == "Activo")
+                    {
+                        customer.Status = true;
+                    }
+                    else
+                    {
+                        customer.Status = false;
 
-                MessageBox.Show($"Cliente: \"{customer.CustName}\" ha sido añadido con exito");
-                this.Close();
+                    }
+                    customer.IsActivo = CKB_IsActivo.Checked;
+
+                    _customer.Add(customer);
+
+                    MessageBox.Show($"Cliente: \"{customer.CustName}\" ha sido añadido con exito");
+                    this.Close();
+                }
+
             }
             catch (Exception)
             {
-
-                MessageBox.Show("Ha ocurrido un error al agregar el cliente");
+                throw;
+                //MessageBox.Show("Ha ocurrido un error al agregar el cliente");
             }
 
+        }
+
+        private bool Validaciones()
+        {
+            if (string.IsNullOrEmpty(TXT_CustName.Text))
+            {
+                MessageBox.Show("Introduzca el nombre del cliente");
+                return false;
+            }
+            if (string.IsNullOrEmpty(TXT_Adress.Text))
+            {
+                MessageBox.Show("Introduzca la direccion del cliente");
+                return false;
+            }
+            if (CB_Status.SelectedItem == null)
+            {
+                MessageBox.Show("Seleccione  el status del cliente");
+                return false;
+            }
+            if (CB_CustomerType.SelectedItem == null)
+            {
+                MessageBox.Show("Seleccione  el status del cliente");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

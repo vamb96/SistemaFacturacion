@@ -30,7 +30,7 @@ namespace Controladores.Services
             {
                 _context.InvoicesDetail.Remove(invoiceDetail);
                 _context.SaveChanges();
-                return _context.SaveChanges() > 0;
+                return true; ;
             }
             return false;
         }

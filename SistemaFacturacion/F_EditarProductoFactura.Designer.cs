@@ -32,9 +32,7 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            label4 = new Label();
             TXT_Descripcion = new TextBox();
-            TXT_Precio = new TextBox();
             NUD_Cantidad = new NumericUpDown();
             BT_Modificar = new Button();
             ((System.ComponentModel.ISupportInitialize)NUD_Cantidad).BeginInit();
@@ -68,15 +66,6 @@
             label3.TabIndex = 2;
             label3.Text = "Cantidad:";
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(45, 152);
-            label4.Name = "label4";
-            label4.Size = new Size(43, 15);
-            label4.TabIndex = 3;
-            label4.Text = "Precio:";
-            // 
             // TXT_Descripcion
             // 
             TXT_Descripcion.Location = new Point(109, 69);
@@ -84,14 +73,6 @@
             TXT_Descripcion.ReadOnly = true;
             TXT_Descripcion.Size = new Size(218, 23);
             TXT_Descripcion.TabIndex = 4;
-            // 
-            // TXT_Precio
-            // 
-            TXT_Precio.Location = new Point(109, 149);
-            TXT_Precio.Name = "TXT_Precio";
-            TXT_Precio.Size = new Size(100, 23);
-            TXT_Precio.TabIndex = 2;
-            TXT_Precio.KeyPress += TXT_Precio_KeyPress;
             // 
             // NUD_Cantidad
             // 
@@ -105,7 +86,7 @@
             BT_Modificar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             BT_Modificar.Image = (Image)resources.GetObject("BT_Modificar.Image");
             BT_Modificar.ImageAlign = ContentAlignment.MiddleLeft;
-            BT_Modificar.Location = new Point(132, 200);
+            BT_Modificar.Location = new Point(135, 153);
             BT_Modificar.Name = "BT_Modificar";
             BT_Modificar.Size = new Size(138, 40);
             BT_Modificar.TabIndex = 3;
@@ -117,12 +98,10 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(350, 261);
+            ClientSize = new Size(369, 208);
             Controls.Add(BT_Modificar);
             Controls.Add(NUD_Cantidad);
-            Controls.Add(TXT_Precio);
             Controls.Add(TXT_Descripcion);
-            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -140,9 +119,7 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private Label label4;
         private TextBox TXT_Descripcion;
-        private TextBox TXT_Precio;
         private NumericUpDown NUD_Cantidad;
         private Button BT_Modificar;
     }

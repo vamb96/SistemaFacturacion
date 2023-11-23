@@ -12,8 +12,9 @@ namespace Datos.Interfaces
         public void Add(Product product);
         public void Update(Product product, int id);
         public bool Delete(int Id);
-        public Product Get(int id);
+        public Product GetProductById(int id);
         public List<Product> GetAll();
         List<Product> GetProducts(string text);
+        public Product GetProductByDescription(string description);
     }
 }

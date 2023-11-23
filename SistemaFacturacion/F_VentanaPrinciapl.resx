@@ -1,64 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<root>
-  <!--
-    Microsoft ResX Schema 
-
-    Version 2.0
-
-    The primary goals of this format is to allow a simple XML format
-    that is mostly human readable. The generation and parsing of the
-    various data types are done through the TypeConverter classes
-    associated with the data types.
-
-    Example:
-
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-
-    There are any number of "resheader" rows that contain simple
-    name/value pairs.
-
-    Each data row contains a name, and value. The row also contains a
-    type or mimetype. Type corresponds to a .NET class that support
-    text/value conversion through the TypeConverter architecture.
-    Classes that don't support this are serialized and stored with the
-    mimetype set.
-
-    The mimetype is used for serialized objects, and tells the
-    ResXResourceReader how to depersist the object. This is currently not
-    extensible. For a given mimetype the value must be set accordingly:
-
-    Note - application/x-microsoft.net.object.binary.base64 is the format
-    that the ResXResourceWriter will generate, however the reader can
-    read any of the formats listed below.
-
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
+﻿<root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
@@ -121,7 +61,7 @@
   <data name="BT_Facturar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        rwAAAK8BK7AVuQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAOGSURBVEhLnZV/
+        rgAAAK4B+ff3XQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAOGSURBVEhLnZV/
         TIxxHMcNmzUxtDnOdd09Tz/8qPvR/ej8SG6pE5r58U8bbUT5o4w2PzMzRBgWugphqtWR/Kx0p4ycKEuI
         FJGYn0X5FTq93fdZd7vnLt3lvb3u2fN8nn1e9/08z7PvgH+EyxfSN0UyVduIkaP+8L0EJrFU+s4ZEmng
         e5lC2aYIUrVJJJJNPb0cwxfQRr2xDk0fulBR14opwWp8/fkH33/DgaIrVx2udXR2Y3F0TJebm5uqpyUr
@@ -169,7 +109,7 @@
   <data name="BT_AdministrarProductos.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        rwAAAK8BK7AVuQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAALPSURBVEhLvZVd
+        rgAAAK4B+ff3XQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAALPSURBVEhLvZVd
         SFNRAMdvBPaSCD2VEAgGPVTUSx9PgZBtK/AljBBC6cE3ycjsxYyoBxdp4Ky4M3pIerBU6IOFZtOZqbvT
         ZlvqdrfbNu+dc/duOie0vvTfuXe3mYxwm9Qffg/n3MP/t7Nz7kb912gY/obWJphPMsHd8hgeahtAbVGe
         WYXThDGdjdfJ45yitQVbTzG+naQ0DxJVDZESCA5CuSzSWoVyGXV57sFT6jzGqCGEqRApZ+GlRmCnitTH
@@ -183,6 +123,23 @@
         BVjyVCDia0U0YFCIiPcRll4p1zQofkSCL8FcwJiZQCbMXlB28ht5bJhgcdTsSnGdcStrWXd3ak3Gglz5
         q6CmriHR0fkMAyOjm6Lf8k4RGGh6/d/q1Wu39DWXG77UXmncNKRrRq/X56vV/zoU9QtZrlTWBbo/bgAA
         AABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="BT_AdministrarTipoCliente.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAAKUAAAClAXDE3lUAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAACeklEQVRIS2P4//8/QawW2HoKiP+DsKRV5n8Ji7T/UrY5X7CpRcdYBTUC2o1hbO3QBjagwT/QLZCw
+        TP+v7ZDFA1Mn71gcBGMjYwwBtcC2CpBB6kGta1QC2yyB7Nkww1EsAGIZ+/wb8k7FKdL2eQ9AfFmHgh3o
+        5qFwYIbjw8gWYMPolhBtuE78tP+mJev+G1du/q8eMwGvRciWgAkN/yZdbIaCsEXVtv/+67/8D9r2B4xt
+        Z938bz392n+bGdf/W3af+C9tl4vVEjnnkhi4BSAM9MEyZIM1I/v+u826DTcY3QIYtp15479adD+K4TL2
+        eU9g5sItUAlqsUC2wGX6dQzDU3d//1+65gqKBTBLpB0LEK53KklFsQCaFOGpxbx8E4bha888+f/3/oX/
+        /y8c/P/u7BEMS6x6TyP5IP8GLAnDMhE8nYOwz4rXKIYn7Pzx/9c9oOH3zwMtOPD//7n9//s3ncewRNal
+        BG4JKJ+AMiPIArjBIKwR3oNiOAgn7/rx/w+aBVM2n8OwQCdjPsICKMawwDBrEYYF5V1H/r/smfj//71z
+        4CD6fXjb/5lWMRgWmDfvJ92CnOlX/j9jlfn/ikHs/1s5/f+3PPz+H2YQAOOJjumkW4AeRCv9KsCGw/Bx
+        BkG4BYc4ZVAswBVEeCN5u23y/4fcKnB8nFH4/1FGQQhmEUOxAGskE5tMYRg9o8EwzmQKIkAYWnLCfYEt
+        o+GyAD2jgUpYmLlwC0DFM7IFlBQVoOIbxQJQBYNsODImt7CDVUBwH9C0uCbWEhAmu8KBYYQlbcugJSze
+        KhNUcoKKZ2yGgzAKB4ZBFRCMTWylD6tg0DGGADYMNJjMZst/BgDgxEC2wTU5RgAAAABJRU5ErkJggg==
 </value>
   </data>
 </root>

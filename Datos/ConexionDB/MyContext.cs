@@ -35,13 +35,14 @@ namespace Datos.ConexionDB
             modelBuilder.Entity<InvoiceDetail>().Property(i => i.SubTotal).HasColumnType("decimal(18,4)");
             modelBuilder.Entity<InvoiceDetail>().Property(i => i.Total).HasColumnType("decimal(18,4)");
 
+            modelBuilder.Entity<Product>().Property(i => i.Price).HasColumnType("decimal(18,4)");
+
+
             modelBuilder.Entity<Customer>().ToTable("Customers");
             modelBuilder.Entity<CustomerTypes>().ToTable("CustomerTypes");
             modelBuilder.Entity<Invoice>().ToTable("Invoice");
             modelBuilder.Entity<InvoiceDetail>().ToTable("InvoiceDetail");
             modelBuilder.Entity<Product>().ToTable("Products");
-
-
 
         }
 

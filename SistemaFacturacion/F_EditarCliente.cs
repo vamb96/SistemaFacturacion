@@ -24,12 +24,28 @@ namespace SistemaFacturacion
             _idCustomer = idCustomer;
             _serviceCustomer = ServiceCustomer;
             _customer = _serviceCustomer.Get(_idCustomer);
-
+            CB_CustomerType.Items.Clear();
+            
             TXT_CustName.Text = _customer.CustName;
             TXT_Adress.Text = _customer.Adress;
             CB_Status.SelectedIndex = Convert.ToInt32(_customer.Status);
             CKB_IsActivo.Checked = _customer.IsActivo;
-            CB_CustomerType.SelectedIndex = Convert.ToInt32(_customer.CustomerType);
+            CB_CustomerType.Text = _customer.CustomerTypeId.ToString();
+
+            foreach (CustomerTypes item in _serviceCustomer.GetCustomerTypes())
+            {
+                CB_CustomerType.Items.Add(item);
+                if (_customer.CustomerTypeId == item.Id)
+                {
+                    CB_CustomerType.SelectedItem = item;
+                }
+            }
+            CB_CustomerType.DisplayMember = "Description";
+            
+
+            //ustomerTypes type = _serviceCustomer.GetCustomerType(_customer.CustomerTypeId);
+            //CB_CustomerType.SelectedItem = type;
+            //CB_CustomerType.DisplayMember = "Description";
         }
 
         private void BT_Editar_Click(object sender, EventArgs e)
@@ -41,14 +57,8 @@ namespace SistemaFacturacion
                 customer.Adress = TXT_Adress.Text;
                 customer.Status = Convert.ToBoolean(CB_Status.SelectedIndex);
                 customer.IsActivo = Convert.ToBoolean(CKB_IsActivo.Checked);
-                if (CB_CustomerType.SelectedItem == "Contado")
-                {
-                    customer.CustomerTypeId = 1;
-                }
-                else
-                {
-                    customer.CustomerTypeId = 2;
-                }
+                CustomerTypes type = (CustomerTypes)CB_CustomerType.SelectedItem;       
+                customer.CustomerTypeId = type.Id;
 
                 _serviceCustomer.Update(customer, _idCustomer);
                 MessageBox.Show("El cliente ha sido actualizado con exito.");

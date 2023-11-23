@@ -35,6 +35,8 @@
             BT_Agregar = new Button();
             TXT_Description = new TextBox();
             CKB_IsActivo = new CheckBox();
+            label4 = new Label();
+            TXT_Price = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -59,7 +61,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(59, 96);
+            label3.Location = new Point(59, 130);
             label3.Name = "label3";
             label3.Size = new Size(41, 15);
             label3.TabIndex = 2;
@@ -70,7 +72,7 @@
             BT_Agregar.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             BT_Agregar.Image = (Image)resources.GetObject("BT_Agregar.Image");
             BT_Agregar.ImageAlign = ContentAlignment.MiddleLeft;
-            BT_Agregar.Location = new Point(151, 127);
+            BT_Agregar.Location = new Point(151, 161);
             BT_Agregar.Name = "BT_Agregar";
             BT_Agregar.Size = new Size(134, 38);
             BT_Agregar.TabIndex = 3;
@@ -88,17 +90,35 @@
             // CKB_IsActivo
             // 
             CKB_IsActivo.AutoSize = true;
-            CKB_IsActivo.Location = new Point(106, 96);
+            CKB_IsActivo.Location = new Point(106, 130);
             CKB_IsActivo.Name = "CKB_IsActivo";
             CKB_IsActivo.Size = new Size(15, 14);
             CKB_IsActivo.TabIndex = 2;
             CKB_IsActivo.UseVisualStyleBackColor = true;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(57, 96);
+            label4.Name = "label4";
+            label4.Size = new Size(43, 15);
+            label4.TabIndex = 4;
+            label4.Text = "Precio:";
+            // 
+            // TXT_Price
+            // 
+            TXT_Price.Location = new Point(106, 92);
+            TXT_Price.Name = "TXT_Price";
+            TXT_Price.Size = new Size(100, 23);
+            TXT_Price.TabIndex = 5;
+            // 
             // F_AgregarProducto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(412, 179);
+            ClientSize = new Size(412, 216);
+            Controls.Add(TXT_Price);
+            Controls.Add(label4);
             Controls.Add(CKB_IsActivo);
             Controls.Add(TXT_Description);
             Controls.Add(BT_Agregar);
@@ -121,5 +141,7 @@
         private Button BT_Agregar;
         private TextBox TXT_Description;
         private CheckBox CKB_IsActivo;
+        private Label label4;
+        private TextBox TXT_Price;
     }
 }

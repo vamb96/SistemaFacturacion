@@ -81,14 +81,23 @@ namespace SistemaFacturacion
 
         private void BT_GuardarFactura_Click(object sender, EventArgs e)
         {
-            if (invoice.Customer != null && invoice.ListDetails.Count >= 0)
+            if (invoice.Customer != null && invoice.ListDetails.Count > 0)
             {
-                CalcularTotales();
-                _service.Add(invoice);
-                MessageBox.Show("Factura gurada con exito.");
-                this.Hide();
-                F_Facturacion mostrar = new F_Facturacion();
-                mostrar.ShowDialog();
+                try
+                {
+                    CalcularTotales();
+                    _service.Add(invoice);
+                    MessageBox.Show("Factura gurada con exito.");
+                    this.Hide();
+                    F_Facturacion mostrar = new F_Facturacion();
+                    mostrar.ShowDialog();
+                }
+                catch (Exception)
+                {
+
+                    throw;//MessageBox.Show("Ha ocurrido un error al guardar la factura");
+                }
+                
             }
             else
             {

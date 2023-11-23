@@ -35,6 +35,8 @@
             label2 = new Label();
             label1 = new Label();
             CHK_Activo = new CheckBox();
+            label3 = new Label();
+            TXT_Precio = new TextBox();
             SuspendLayout();
             // 
             // BT_Editar
@@ -42,7 +44,7 @@
             BT_Editar.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             BT_Editar.Image = (Image)resources.GetObject("BT_Editar.Image");
             BT_Editar.ImageAlign = ContentAlignment.MiddleLeft;
-            BT_Editar.Location = new Point(135, 162);
+            BT_Editar.Location = new Point(145, 182);
             BT_Editar.Name = "BT_Editar";
             BT_Editar.Size = new Size(118, 39);
             BT_Editar.TabIndex = 3;
@@ -70,7 +72,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(51, 122);
+            label2.Location = new Point(51, 147);
             label2.Name = "label2";
             label2.Size = new Size(41, 15);
             label2.TabIndex = 26;
@@ -88,17 +90,36 @@
             // CHK_Activo
             // 
             CHK_Activo.AutoSize = true;
-            CHK_Activo.Location = new Point(99, 123);
+            CHK_Activo.Location = new Point(99, 148);
             CHK_Activo.Name = "CHK_Activo";
             CHK_Activo.Size = new Size(15, 14);
             CHK_Activo.TabIndex = 2;
             CHK_Activo.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(51, 113);
+            label3.Name = "label3";
+            label3.Size = new Size(43, 15);
+            label3.TabIndex = 31;
+            label3.Text = "Precio:";
+            // 
+            // TXT_Precio
+            // 
+            TXT_Precio.Location = new Point(98, 110);
+            TXT_Precio.Name = "TXT_Precio";
+            TXT_Precio.Size = new Size(100, 23);
+            TXT_Precio.TabIndex = 32;
+            TXT_Precio.KeyPress += TXT_Precio_KeyPress;
+            // 
             // F_EditarProducto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(431, 224);
+            ClientSize = new Size(386, 245);
+            Controls.Add(TXT_Precio);
+            Controls.Add(label3);
             Controls.Add(CHK_Activo);
             Controls.Add(BT_Editar);
             Controls.Add(TXT_Descripcion);
@@ -121,5 +142,7 @@
         private Label label2;
         private Label label1;
         private CheckBox CHK_Activo;
+        private Label label3;
+        private TextBox TXT_Precio;
     }
 }

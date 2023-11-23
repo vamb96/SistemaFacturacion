@@ -36,8 +36,14 @@ namespace SistemaFacturacion
             DGV_Customer.Rows.Clear();
             foreach (Customer customer in ServiceCustomer.GetAll())
             {
+                string NameCustomerType ="";
+                if (ServiceCustomer.GetCustomerType(customer.CustomerTypeId) != null)
+                {
+                    NameCustomerType = ServiceCustomer.GetCustomerType(customer.CustomerTypeId).Description;
+                }
+
                 DGV_Customer.Rows.Add(customer.Id, customer.CustName, customer.Adress, customer.Status,
-                    customer.IsActivo, customer.CustomerTypeId);
+                    customer.IsActivo, NameCustomerType);
             }
         }
 
@@ -89,7 +95,7 @@ namespace SistemaFacturacion
             catch (Exception)
             {
 
-                MessageBox.Show("Ha ocurrido un error al seleccionar esta opcion.");
+                throw;//MessageBox.Show("Ha ocurrido un error al seleccionar esta opcion.");
             }
         }
 

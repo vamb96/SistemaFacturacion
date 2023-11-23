@@ -35,7 +35,7 @@ namespace Controladores.Services
             return false;
         }
 
-        public Product Get(int id)
+        public Product GetProductById(int id)
         {
             Product product1 = _context.Productos.FirstOrDefault(x => x.Id == id);
             return product1;
@@ -52,6 +52,7 @@ namespace Controladores.Services
             if (product1 != null) 
             { 
                 product1.Description = product.Description;
+                product1.Price = product.Price;
                 product1.IsActivo = product.IsActivo;
                 _context.Entry(product1).State = EntityState.Modified;
                 _context.SaveChanges();
@@ -66,6 +67,11 @@ namespace Controladores.Services
         .ToList();
 
             return listProducts;
+        }
+
+        public Product GetProductByDescription(string description)
+        {
+            return _context.Productos.FirstOrDefault(x => x.Description.ToLower() == description.ToLower());
         }
     }
 }

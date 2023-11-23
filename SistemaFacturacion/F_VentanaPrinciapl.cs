@@ -27,5 +27,11 @@ namespace SistemaFacturacion
             F_Facturacion mostrar = new F_Facturacion();
             mostrar.ShowDialog();
         }
+
+        private void AdministrarTipoCliente_Click(object sender, EventArgs e)
+        {
+            F_AdministrarTipoCliente mostrar = new F_AdministrarTipoCliente();
+            mostrar.ShowDialog();
+        }
     }
 }

@@ -15,5 +15,7 @@ namespace Datos.Interfaces
         public Customer Get(int id);
         public List<Customer> GetAll();
         public List<Customer> GetCustomers(string item);
+        public List<CustomerTypes> GetCustomerTypes();
+        public CustomerTypes GetCustomerType(int id);
     }
 }

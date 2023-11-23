@@ -35,7 +35,7 @@ namespace SistemaFacturacion
 
             foreach (Product product in serviceProduct.GetAll())
             {
-                DGV_Product.Rows.Add(product.Id, product.Description, product.IsActivo);
+                DGV_Product.Rows.Add(product.Id, product.Description, product.Price, product.IsActivo);
             }
 
         }
@@ -95,7 +95,7 @@ namespace SistemaFacturacion
                 DGV_Product.Rows.Clear();
                 foreach (Product item in serviceProduct.GetProducts(TXT_Buscar.Text))
                 {
-                    DGV_Product.Rows.Add(item.Id, item.Description, item.IsActivo);
+                    DGV_Product.Rows.Add(item.Id, item.Description, item.Price, item.IsActivo);
                 }
             }
 

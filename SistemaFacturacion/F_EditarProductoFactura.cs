@@ -33,24 +33,7 @@ namespace SistemaFacturacion
 
             TXT_Descripcion.Text = _invoiceDetail.producto.Description;
             NUD_Cantidad.Value = _invoiceDetail.Qty;
-            TXT_Precio.Text = _invoiceDetail.Price.ToString();
 
-        }
-
-        private void TXT_Precio_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-            else if (char.IsDigit(e.KeyChar))
-            {
-                int value;
-                if (!int.TryParse(TXT_Precio.Text + e.KeyChar, out value) || value <= 0)
-                {
-                    e.Handled = true;
-                }
-            }
         }
 
         private void BT_Modificar_Click(object sender, EventArgs e)
@@ -58,7 +41,6 @@ namespace SistemaFacturacion
             try
             {
                 _invoiceDetail.Qty = (int)NUD_Cantidad.Value;
-                _invoiceDetail.Price = Convert.ToInt32(TXT_Precio.Text);
                 _invoiceDetail.SubTotal = _invoiceDetail.Qty * _invoiceDetail.Price;
                 _invoiceDetail.TotalItbis = _invoiceDetail.SubTotal * 0.18M;
                 _invoiceDetail.Total = _invoiceDetail.SubTotal + _invoiceDetail.TotalItbis;
