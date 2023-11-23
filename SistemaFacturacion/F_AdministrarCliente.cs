@@ -39,7 +39,6 @@ namespace SistemaFacturacion
                 DGV_Customer.Rows.Add(customer.Id, customer.CustName, customer.Adress, customer.Status,
                     customer.IsActivo, customer.CustomerTypeId);
             }
-
         }
 
         private void DGV_Customer_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -92,7 +91,6 @@ namespace SistemaFacturacion
 
                 MessageBox.Show("Ha ocurrido un error al seleccionar esta opcion.");
             }
-
         }
 
         private void BT_Buscar_Click(object sender, EventArgs e)
@@ -105,10 +103,6 @@ namespace SistemaFacturacion
                 DGV_Customer.Rows.Add(customer.Id, customer.CustName, customer.Adress, customer.Status,
                 customer.IsActivo, customer.CustomerTypeId);
             }
-
-
-
         }
-
     }
 }
