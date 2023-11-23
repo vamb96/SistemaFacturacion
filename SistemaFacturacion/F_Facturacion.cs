@@ -95,7 +95,7 @@ namespace SistemaFacturacion
                 catch (Exception)
                 {
 
-                    throw;//MessageBox.Show("Ha ocurrido un error al guardar la factura");
+                    MessageBox.Show("Ha ocurrido un error al guardar la factura");
                 }
                 
             }
