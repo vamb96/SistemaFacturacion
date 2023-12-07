@@ -13,5 +13,6 @@ namespace Datos.Models
         public decimal Price { get; set; }
         public bool IsActivo { get; set; }
 
+        public List<InvoiceDetail> listInvoices { get; set; }
     }
 }

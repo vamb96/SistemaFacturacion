@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,9 @@ namespace Datos.Models
     public class Customer
     {
         public int Id { get; set; }
+
         public string CustName { get; set; }
+
         public string Adress { get; set; }
         public bool Status { get; set; }
         public bool IsActivo { get; set; }

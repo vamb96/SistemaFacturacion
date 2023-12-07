@@ -1,3 +1,7 @@
+using Microsoft.Data.SqlClient;
+using System.Data;
+using System.Data.Common;
+
 namespace SistemaFacturacion
 {
     internal static class Program
@@ -12,6 +16,8 @@ namespace SistemaFacturacion
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new F_VentanaPrinciapl());
+
         }
+
     }
 }

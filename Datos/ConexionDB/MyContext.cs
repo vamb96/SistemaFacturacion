@@ -43,7 +43,9 @@ namespace Datos.ConexionDB
             modelBuilder.Entity<Invoice>().ToTable("Invoice");
             modelBuilder.Entity<InvoiceDetail>().ToTable("InvoiceDetail");
             modelBuilder.Entity<Product>().ToTable("Products");
-
+            
+            //modelBuilder.Entity<Customer>().Property(p => p.CustName).HasMaxLength(100);
+            //modelBuilder.Entity<Customer>().Property(p => p.CustNombre).HasColumnName("CustName");
         }
 
         public DbSet<Customer> Customers { get; set; }
